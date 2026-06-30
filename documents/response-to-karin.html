@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Response Letter — Ebersbacher Group Ltd.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: #d0ccc7;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 13px;
+      color: #111;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* TOP RULE */
+    .top-rule { height: 6px; background: #1D3571; }
+    .top-rule::after { content: ''; display: block; height: 2.5px; background: #F2A818; }
+
+    /* LETTERHEAD */
+    .letterhead {
+      padding: 22px 42px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #ccc;
+    }
+    .lh-brand { display: flex; align-items: center; gap: 13px; }
+    .lh-brand img { width: 56px; height: 56px; object-fit: contain; }
+    .lh-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 19px; font-weight: 600; color: #1D3571;
+      letter-spacing: 0.03em; line-height: 1.1;
+    }
+    .lh-tagline { font-size: 8.5px; color: #999; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 4px; }
+    .lh-right { text-align: right; font-size: 10.5px; color: #555; line-height: 1.8; }
+    .lh-right strong { color: #1D3571; }
+
+    /* META */
+    .doc-meta {
+      padding: 12px 42px;
+      background: #f7f7f7;
+      border-bottom: 1px solid #ddd;
+      display: flex; gap: 0;
+    }
+    .dmi { flex: 1; border-right: 1px solid #ddd; padding: 0 16px; }
+    .dmi:first-child { padding-left: 0; }
+    .dmi:last-child { border-right: none; }
+    .dmi-label { font-size: 8px; color: #999; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px; }
+    .dmi-value { font-size: 11.5px; color: #1D3571; font-weight: 600; }
+    .dmi-value.mono { font-family: 'Source Code Pro', monospace; font-size: 11px; }
+
+    /* BODY */
+    .doc-body { padding: 24px 42px 0; flex: 1; }
+
+    /* ADDRESSEE */
+    .addressee { font-size: 12.5px; color: #111; line-height: 1.8; margin-bottom: 16px; }
+
+    .date-line { font-size: 12.5px; color: #111; margin-bottom: 14px; }
+
+    /* RE LINE */
+    .re-line {
+      background: #f0f4fb;
+      border-left: 4px solid #1D3571;
+      padding: 9px 14px;
+      margin-bottom: 18px;
+      font-size: 12px; color: #1D3571; font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .salutation { font-size: 13px; color: #111; margin-bottom: 16px; }
+
+    .para { font-size: 12.5px; line-height: 1.95; color: #222; margin-bottom: 14px; text-align: justify; }
+    .para strong { color: #1D3571; }
+
+    /* CALLOUT — strong statement */
+    .callout {
+      border: 1.5px solid #1D3571;
+      background: #f0f4fb;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-size: 12.5px; color: #1D3571; line-height: 1.85; font-weight: 500;
+    }
+
+    /* ENCLOSURES BOX */
+    .enclosures {
+      border: 1px solid #ddd;
+      margin: 18px 0;
+    }
+    .enclosures-header {
+      background: #1D3571;
+      padding: 7px 14px;
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #F2A818; font-weight: 700;
+    }
+    .enclosure-item {
+      display: flex;
+      gap: 14px;
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+      align-items: flex-start;
+      font-size: 12px; color: #222;
+    }
+    .enclosure-item:last-child { border-bottom: none; }
+    .enc-num {
+      width: 22px; height: 22px;
+      background: #1D3571; color: #fff;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .enc-text { flex: 1; line-height: 1.65; }
+    .enc-title { font-weight: 700; color: #1D3571; }
+    .enc-sub { font-size: 10.5px; color: #666; margin-top: 2px; }
+
+    /* DEADLINE BOX */
+    .deadline-box {
+      border-left: 4px solid #F2A818;
+      background: #fdf9f0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 12.5px; color: #333; line-height: 1.8;
+    }
+    .deadline-box strong { color: #1D3571; }
+
+    /* SIGNATURE */
+    .sig-block { padding: 20px 42px 16px; }
+    .sig-closing { font-size: 12.5px; color: #222; margin-bottom: 34px; }
+    .sig-line { width: 210px; height: 1px; background: #1D3571; margin-bottom: 7px; }
+    .sig-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 17px; font-style: italic; color: #1D3571;
+    }
+    .sig-role { font-size: 11px; color: #333; font-weight: 600; margin-top: 3px; }
+    .sig-co { font-size: 10.5px; color: #888; margin-top: 2px; }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid #ddd;
+      padding: 9px 42px 14px;
+      background: #faf9f7;
+      margin-top: auto;
+    }
+    .footer-text { font-size: 8.5px; color: #aaa; line-height: 1.7; display: flex; justify-content: space-between; }
+    .footer-ref { font-family: 'Source Code Pro', monospace; font-size: 9px; color: #1D3571; font-weight: 600; }
+
+    .bottom-rule { height: 6px; background: #1D3571; }
+    .bottom-rule::before { content: ''; display: block; height: 2.5px; background: #F2A818; }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="top-rule"></div>
+
+  <!-- LETTERHEAD -->
+  <div class="letterhead">
+    <div class="lh-brand">
+      <img src="ebersbacher-website/images/logo.png" alt="Ebersbacher Group"/>
+      <div>
+        <div class="lh-name">Ebersbacher Group Ltd.</div>
+        <div class="lh-tagline">Private Wealth &amp; Investment Management</div>
+      </div>
+    </div>
+    <div class="lh-right">
+      Whittington Road, Worcester, WR5 2RG<br/>
+      United Kingdom<br/>
+      <strong>mario@ebersbacher.co.uk</strong><br/>
+      ebersbacher.co.uk &nbsp;|&nbsp; Co. No. 12847653
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="doc-meta">
+    <div class="dmi">
+      <div class="dmi-label">Date</div>
+      <div class="dmi-value">30 June 2026</div>
+    </div>
+    <div class="dmi">
+      <div class="dmi-label">Our Reference</div>
+      <div class="dmi-value mono">EBG-LOI-2026-0630</div>
+    </div>
+    <div class="dmi">
+      <div class="dmi-label">Subject</div>
+      <div class="dmi-value">Verification &amp; LOI Response</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+
+    <div class="addressee">
+      <strong>Ms. Karin Seegardel</strong><br/>
+      Nordic Equine Leadership Institute<br/>
+      Denmark
+    </div>
+
+    <div class="date-line">30 June 2026</div>
+
+    <div class="re-line">
+      RE: Response to Your Enquiry — Letter of Intent EBG-LOI-2026-0630 &amp; Verification of Ebersbacher Group Ltd.
+    </div>
+
+    <p class="salutation">Dear Ms. Seegardel,</p>
+
+    <p class="para">
+      Thank you for your response to our Letter of Intent dated 30 June 2026. We have noted your comments carefully and are pleased to respond.
+    </p>
+
+    <p class="para">
+      We understand that receiving a formal investment offer of <strong>€1,200,000</strong> from an international wealth management firm may naturally prompt questions regarding our standing and the seriousness of our mandate. We welcome that due diligence and are fully prepared to address it.
+    </p>
+
+    <div class="callout">
+      We wish to be clear: our client's investment commitment is real, fully funded, and ready to be deployed. The funds are held in a designated, secure account and can be mobilised within the timelines specified in our LOI upon satisfaction of the agreed condition precedent. There is no ambiguity on our side.
+    </div>
+
+    <p class="para">
+      With respect to your request for verification documents, we enclose the following with this letter. These documents address your request in full and represent the appropriate level of disclosure that a regulated wealth management firm is able to provide to a commercial counterparty at this stage of a transaction:
+    </p>
+
+    <!-- ENCLOSURES -->
+    <div class="enclosures">
+      <div class="enclosures-header">Enclosed Documents — Verification Package</div>
+      <div class="enclosure-item">
+        <div class="enc-num">1</div>
+        <div class="enc-text">
+          <div class="enc-title">Solicitor's Letter — Grayson Whitmore LLP, London</div>
+          <div class="enc-sub">Issued by our retained solicitors confirming that Ebersbacher Group Ltd. is a properly incorporated and legally standing entity in England &amp; Wales, and that Mr. Mario Ebersbacher holds full authority to represent and bind the company in the transaction described. Ref: JCF/EBG/2026/0847.</div>
+        </div>
+      </div>
+      <div class="enclosure-item">
+        <div class="enc-num">2</div>
+        <div class="enc-text">
+          <div class="enc-title">Companies House Register Extract — Official Certified Copy</div>
+          <div class="enc-sub">Official extract from the UK Companies House public register confirming company status (Active), incorporation date, registered office, nature of business, and current officers. Company No. 12847653 may be independently verified at companieshouse.gov.uk at any time. Ref: CH-EBG-2026-0147.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="para">
+      Regarding the identity of our investor client — we are not in a position to disclose this information to any third party. This is a standard and legally recognised position for all regulated wealth management firms operating under UK financial services legislation and is not open to negotiation. Our solicitors have addressed this point in their letter.
+    </p>
+
+    <p class="para">
+      With respect to your suggestion of an alternative payment structure via a lawyer's escrow account or direct payment to the seller following notarisation — we are open to discussing an appropriate escrow mechanism, provided it is administered by a mutually agreed and qualified legal professional. We would ask that you propose the details of any such arrangement, which we will then review with our legal advisers.
+    </p>
+
+    <div class="deadline-box">
+      <strong>Next Steps:</strong> We respectfully request that you review the enclosed documents and revert to us with your position within <strong>7 business days</strong> of the date of this letter. Our LOI remains valid for 15 calendar days from the date of issue. We are keen to progress this transaction and remain committed to doing so, but we equally require clarity on your ability and willingness to proceed.
+    </div>
+
+    <p class="para">
+      We look forward to your prompt response and remain available to discuss any further questions you may have.
+    </p>
+
+    <p class="para">Yours sincerely,</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="sig-block">
+    <div class="sig-line"></div>
+    <div class="sig-name">Mario Ebersbacher</div>
+    <div class="sig-role">Chief Executive Officer</div>
+    <div class="sig-co">Ebersbacher Group Ltd. &nbsp;|&nbsp; Co. No. 12847653</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div class="footer-text">
+      <span>Ebersbacher Group Ltd. &bull; Whittington Road, Worcester, WR5 2RG &bull; United Kingdom &bull; ebersbacher.co.uk</span>
+      <span class="footer-ref">EBG-LOI-2026-0630-R1</span>
+    </div>
+  </div>
+
+  <div class="bottom-rule"></div>
+</div>
+</body>
+</html>
