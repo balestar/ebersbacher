@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitors Letter — Grayson Whitmore LLP</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: #d0ccc7;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 13px;
+      color: #111;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ── LETTERHEAD ── */
+    .lh-wrap {
+      padding: 28px 42px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    /* Firm name — two-tone classic style */
+    .firm-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+    .firm-name span { color: #7a6030; }
+    .firm-type {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 5px;
+    }
+    .firm-accreditations {
+      display: flex;
+      gap: 10px;
+      margin-top: 9px;
+      align-items: center;
+    }
+    .accred-badge {
+      border: 1px solid #bbb;
+      padding: 2px 7px;
+      font-size: 8px;
+      color: #666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lh-right {
+      text-align: right;
+      font-size: 10.5px;
+      color: #555;
+      line-height: 1.75;
+    }
+    .lh-right strong { color: #1a1a1a; font-size: 11px; }
+
+    /* Rule under header */
+    .lh-rule {
+      margin: 16px 42px 0;
+      display: flex;
+    }
+    .lh-rule-thick { height: 3px; background: #7a6030; flex: 1; }
+    .lh-rule-thin { height: 3px; background: #c8a84b; width: 60px; }
+
+    /* ── META BLOCK ── */
+    .meta-block {
+      padding: 14px 42px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .meta-left { font-size: 11px; color: #555; line-height: 1.8; }
+    .meta-left strong { color: #111; }
+    .meta-right { text-align: right; font-size: 11px; color: #555; line-height: 1.8; }
+    .meta-right strong { color: #111; }
+
+    /* ── ADDRESSEE ── */
+    .addressee-block {
+      padding: 18px 42px 0;
+      font-size: 12px;
+      color: #111;
+      line-height: 1.75;
+    }
+
+    /* ── DATE ── */
+    .date-line {
+      padding: 16px 42px 0;
+      font-size: 12.5px;
+      color: #111;
+    }
+
+    /* ── SUBJECT LINE ── */
+    .subject-line {
+      padding: 14px 42px 0;
+      font-size: 12.5px;
+      color: #111;
+    }
+    .subject-line strong {
+      display: block;
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── BODY ── */
+    .doc-body {
+      padding: 18px 42px 0;
+      flex: 1;
+    }
+    .salutation { font-size: 13px; color: #111; margin-bottom: 14px; }
+    .para {
+      font-size: 12.5px;
+      line-height: 1.95;
+      color: #222;
+      margin-bottom: 13px;
+      text-align: justify;
+    }
+
+    /* Numbered paragraphs */
+    .numbered-para {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 11px;
+      align-items: flex-start;
+    }
+    .para-num {
+      font-size: 12.5px;
+      color: #7a6030;
+      font-weight: 700;
+      min-width: 22px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .para-text {
+      font-size: 12.5px;
+      line-height: 1.95;
+      color: #222;
+      text-align: justify;
+    }
+
+    /* Inset box */
+    .inset-box {
+      border-left: 3px solid #c8a84b;
+      background: #fdf9f2;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 12px;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    .closing-para {
+      font-size: 12.5px; line-height: 1.95; color: #222; margin-bottom: 13px;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-block { padding: 20px 42px 0; }
+    .sig-closing { font-size: 12.5px; color: #222; margin-bottom: 36px; }
+    .sig-line { width: 200px; height: 1px; background: #333; margin-bottom: 6px; }
+    .sig-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 16px; font-style: italic; color: #1a1a1a;
+    }
+    .sig-role { font-size: 11px; color: #333; font-weight: 600; margin-top: 3px; }
+    .sig-firm { font-size: 11px; color: #7a6030; margin-top: 2px; }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      margin-top: auto;
+      border-top: 1px solid #ddd;
+      padding: 10px 42px 14px;
+      background: #faf9f7;
+    }
+    .footer-rule {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .footer-rule-thick { height: 2px; background: #7a6030; flex: 1; }
+    .footer-rule-thin { height: 2px; background: #c8a84b; width: 40px; }
+    .footer-text {
+      font-size: 8.5px;
+      color: #888;
+      line-height: 1.7;
+    }
+    .footer-text strong { color: #555; }
+    .footer-row2 {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 8.5px;
+      color: #aaa;
+    }
+    .footer-ref {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 9px;
+      color: #7a6030;
+      font-weight: 600;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LETTERHEAD -->
+  <div class="lh-wrap">
+    <div>
+      <div class="firm-name">Grayson <span>Whitmore</span> LLP</div>
+      <div class="firm-type">Solicitors &amp; Commissioners for Oaths</div>
+      <div class="firm-accreditations">
+        <div class="accred-badge">SRA Regulated</div>
+        <div class="accred-badge">Law Society</div>
+        <div class="accred-badge">Lexcel Accredited</div>
+      </div>
+    </div>
+    <div class="lh-right">
+      <strong>Grayson Whitmore LLP</strong><br/>
+      14 Gray's Inn Road, London, WC1X 8HN<br/>
+      United Kingdom<br/>
+      Tel: +44 (0)20 7946 0312<br/>
+      DX: 402 London/Chancery Lane<br/>
+      legal@graysonwhitmore.co.uk
+    </div>
+  </div>
+  <div class="lh-rule"><div class="lh-rule-thick"></div><div class="lh-rule-thin"></div></div>
+
+  <!-- META -->
+  <div class="meta-block">
+    <div class="meta-left">
+      <strong>Our Client:</strong> Ebersbacher Group Ltd.<br/>
+      <strong>Our Ref:</strong> JCF/EBG/2026/0847<br/>
+      <strong>Your Ref:</strong> — / Nordic Equine Leadership Institute
+    </div>
+    <div class="meta-right">
+      <strong>Partner:</strong> Jonathan C. Fletcher<br/>
+      <strong>Direct Line:</strong> +44 (0)20 7946 0314<br/>
+      <strong>Email:</strong> j.fletcher@graysonwhitmore.co.uk
+    </div>
+  </div>
+
+  <!-- ADDRESSEE -->
+  <div class="addressee-block">
+    <strong>Nordic Equine Leadership Institute</strong><br/>
+    Att: Karin Seegardel<br/>
+    Denmark
+  </div>
+
+  <!-- DATE -->
+  <div class="date-line">30 June 2026</div>
+
+  <!-- SUBJECT -->
+  <div class="subject-line">
+    <strong>RE: Confirmation of Corporate Standing and Authority — Ebersbacher Group Ltd. (Co. No. 12847653)</strong>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+    <p class="salutation">Dear Ms. Seegardel,</p>
+
+    <p class="para">
+      We write on behalf of our client, <strong>Ebersbacher Group Ltd.</strong>, in response to your request for verification of the company's legal standing and the authority of its representative in connection with the above-referenced investment transaction.
+    </p>
+
+    <div class="numbered-para">
+      <div class="para-num">1.</div>
+      <div class="para-text">
+        We confirm that we act as solicitors to <strong>Ebersbacher Group Ltd.</strong>, a private limited company duly incorporated under the laws of England and Wales, bearing Company Registration Number <strong>12847653</strong>, with its registered office at Whittington Road, Worcester, WR5 2RG, United Kingdom. The company was incorporated on 14 March 2008 and is presently in good standing with Companies House, with all statutory filing obligations current and up to date.
+      </div>
+    </div>
+
+    <div class="numbered-para">
+      <div class="para-num">2.</div>
+      <div class="para-text">
+        We further confirm that <strong>Mr. Mario Ebersbacher</strong> is the sole Director and Chief Executive Officer of the company and has been continuously appointed in that capacity since the date of incorporation. Mr. Ebersbacher holds full authority under the company's Articles of Association to enter into commercial agreements, execute letters of intent and formal investment instruments, and to represent the company in all matters of a financial and legal nature without further internal approval being required.
+      </div>
+    </div>
+
+    <div class="numbered-para">
+      <div class="para-num">3.</div>
+      <div class="para-text">
+        We are instructed to confirm that Ebersbacher Group Ltd. is acting in its professional capacity as a private wealth management and investment advisory firm in connection with a proposed investment transaction with your organisation. The company is acting on behalf of a private investor client whose identity is protected under our client's duty of confidentiality, which obligations are consistent with applicable UK financial services legislation and professional standards.
+      </div>
+    </div>
+
+    <div class="inset-box">
+      <strong>Note on Client Confidentiality:</strong> In accordance with established UK wealth management practice and applicable financial privacy regulations, our client is not in a position to disclose the identity of its investor client to third parties. This is a standard and legally recognised position for regulated financial intermediaries. The existence of a valid investment mandate has been confirmed by our client internally.
+    </div>
+
+    <div class="numbered-para">
+      <div class="para-num">4.</div>
+      <div class="para-text">
+        The independent standing of Ebersbacher Group Ltd. may be verified directly via the Companies House public register at <strong>find-and-update.company-information.service.gov.uk</strong> using company number <strong>12847653</strong>. We are satisfied, based on our ongoing professional relationship with the company, that it is a legitimate and properly constituted legal entity capable of entering into binding commercial agreements.
+      </div>
+    </div>
+
+    <p class="para">
+      We trust that this letter, together with any documentation provided directly by our client, addresses your verification requirements. Should you require any further confirmation or wish to correspond with this firm directly in connection with this matter, please do not hesitate to contact the undersigned.
+    </p>
+
+    <p class="closing-para">Yours sincerely,</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="sig-block">
+    <div class="sig-line"></div>
+    <div class="sig-name">Jonathan C. Fletcher</div>
+    <div class="sig-role">Partner — Corporate &amp; Commercial</div>
+    <div class="sig-firm">Grayson Whitmore LLP</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div class="footer-rule"><div class="footer-rule-thick"></div><div class="footer-rule-thin"></div></div>
+    <div class="footer-text">
+      <strong>Grayson Whitmore LLP</strong> is a limited liability partnership registered in England and Wales (OC418792). Authorised and regulated by the <strong>Solicitors Regulation Authority</strong> (SRA No. 627541). A list of members is available for inspection at the registered office. VAT Registration No. 248 7731 09. Registered office: 14 Gray's Inn Road, London, WC1X 8HN.
+    </div>
+    <div class="footer-row2">
+      <span>This letter is confidential and intended solely for the named addressee. If received in error, please notify the sender immediately.</span>
+      <span class="footer-ref">JCF/EBG/2026/0847</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
