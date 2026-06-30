@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Companies House — Official Register Extract</title>
+  <title>Companies House — Company Information</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+    /* GOV.UK Design System — authentic styling */
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
 
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      background: #ccc;
-      font-family: 'Inter', 'Arial', sans-serif;
-      color: #111;
+      background: #f3f2f1;
+      font-family: "GDS Transport", Arial, sans-serif;
+      font-size: 14px;
+      color: #0b0c0c;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -20,274 +22,354 @@
     .page {
       width: 210mm;
       min-height: 297mm;
-      margin: 24px auto;
+      margin: 20px auto;
       background: #fff;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.25);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
     }
 
-    /* SECURITY BORDER */
-    .security-border {
-      position: absolute;
-      inset: 6px;
-      border: 1.5px solid #1a5276;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .security-border::before {
-      content: '';
-      position: absolute;
-      inset: 3px;
-      border: 0.5px solid #aab8c8;
-    }
-
-    /* SECURITY MICRO-TEXT TOP STRIP */
-    .security-strip {
-      background: #1a5276;
-      height: 5px;
-      width: 100%;
-      background-image: repeating-linear-gradient(
-        90deg,
-        transparent, transparent 2px,
-        rgba(255,255,255,0.08) 2px, rgba(255,255,255,0.08) 4px
-      );
-    }
-
-    /* CH HEADER */
-    .ch-header {
-      padding: 18px 32px 14px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      border-bottom: 2px solid #1a5276;
-    }
-
-    .ch-logo-area {
+    /* GOV.UK BLACK HEADER BAR */
+    .govuk-header {
+      background: #0b0c0c;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: space-between;
     }
-
-    /* Crown SVG */
-    .crown-wrap {
-      width: 52px;
-      flex-shrink: 0;
-    }
-
-    .ch-identity h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a5276;
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-    }
-    .ch-identity .ch-sub {
-      font-size: 9.5px;
-      color: #444;
-      margin-top: 2px;
-      letter-spacing: 0.03em;
-    }
-    .ch-identity .ch-web {
-      font-size: 9px;
-      color: #1a5276;
-      margin-top: 2px;
-    }
-
-    .ch-doc-info { text-align: right; }
-    .ch-doc-label {
-      font-size: 8.5px; color: #666; letter-spacing: 0.12em;
-      text-transform: uppercase; margin-bottom: 4px;
-    }
-    .ch-doc-type {
-      font-size: 13px; font-weight: 700; color: #1a5276;
-      letter-spacing: 0.02em;
-    }
-    .ch-doc-num {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 11px; color: #333; margin-top: 3px;
-    }
-    .ch-doc-date { font-size: 9.5px; color: #666; margin-top: 3px; }
-
-    /* CERTIFIED BANNER */
-    .certified-banner {
-      background: #eaf3fb;
-      border-top: 1px solid #aac8e0;
-      border-bottom: 1px solid #aac8e0;
-      padding: 7px 32px;
+    .govuk-header-logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .certified-dot {
-      width: 8px; height: 8px;
-      background: #1a5276;
-      border-radius: 50%;
+
+    /* Real GOV.UK crown - simplified but accurate shape */
+    .govuk-crown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 28px;
       flex-shrink: 0;
     }
-    .certified-text {
-      font-size: 9.5px;
-      color: #1a5276;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .certified-text span { font-weight: 400; color: #555; text-transform: none; letter-spacing: 0; margin-left: 8px; }
-
-    /* COMPANY TITLE SECTION */
-    .company-title-section {
-      padding: 20px 32px 16px;
-      border-bottom: 1px solid #ddd;
-    }
-    .company-title-label {
-      font-size: 8.5px; color: #888; text-transform: uppercase;
-      letter-spacing: 0.14em; margin-bottom: 5px;
-    }
-    .company-title-name {
-      font-size: 22px; font-weight: 700; color: #111;
-      letter-spacing: 0.04em;
-    }
-    .company-num-row {
-      display: flex; gap: 24px; margin-top: 8px; align-items: center;
-    }
-    .company-num-item { font-size: 11px; color: #555; }
-    .company-num-item strong {
-      font-family: 'Source Code Pro', monospace;
-      color: #111; font-size: 12px;
-    }
-    .status-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #d4edda; color: #155724;
-      padding: 3px 10px; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .status-pill::before {
-      content: ''; width: 7px; height: 7px;
-      background: #28a745; border-radius: 50%;
+    .govuk-crown svg {
+      width: 28px;
+      height: 26px;
     }
 
-    /* MAIN DATA BODY */
-    .doc-body { padding: 0 32px 24px; }
-
-    /* SECTION */
-    .section { margin-top: 20px; }
-    .section-header {
-      background: #1a5276;
-      padding: 6px 12px;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .govuk-header-name {
       color: #fff;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 0;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .govuk-header-service {
+      color: #fff;
+      font-size: 11px;
+      opacity: 0.75;
+    }
+    .govuk-header-right {
+      text-align: right;
+    }
+    .govuk-header-right .url {
+      color: #aaa;
+      font-size: 10px;
     }
 
-    /* DATA ROWS */
-    .data-row {
+    /* CH SERVICE BANNER */
+    .ch-service-banner {
+      background: #1d70b8;
+      padding: 8px 20px;
       display: flex;
-      border-bottom: 1px solid #eee;
+      align-items: center;
+      justify-content: space-between;
     }
-    .data-row:last-child { border-bottom: none; }
-    .data-key {
-      width: 200px;
-      min-width: 200px;
-      padding: 8px 12px;
+    .ch-service-name {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .ch-service-ref {
+      color: #cde;
       font-size: 11px;
-      color: #555;
-      background: #f9f9f9;
-      border-right: 1px solid #eee;
+      font-family: 'Source Code Pro', monospace;
     }
-    .data-val {
-      flex: 1;
+
+    /* PHASE BANNER — GOV.UK style */
+    .phase-banner {
+      padding: 6px 20px;
+      background: #fff;
+      border-bottom: 1px solid #b1b4b6;
+      font-size: 11px;
+      color: #505a5f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .phase-tag {
+      background: #1d70b8;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      letter-spacing: 0.05em;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 8px 20px;
+      font-size: 11px;
+      color: #505a5f;
+      border-bottom: 1px solid #b1b4b6;
+      background: #fff;
+    }
+    .breadcrumb a { color: #1d70b8; }
+    .breadcrumb span { margin: 0 4px; }
+
+    /* MAIN CONTENT */
+    .main-content { padding: 20px 20px 16px; }
+
+    /* COMPANY HEADER */
+    .company-header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #0b0c0c;
+    }
+    .company-status-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .status-tag-active {
+      background: #00703c;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .company-type-tag {
+      font-size: 12px;
+      color: #505a5f;
+    }
+    .company-main-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0b0c0c;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .company-number-row {
+      font-size: 13px;
+      color: #505a5f;
+    }
+    .company-number-row strong {
+      font-family: 'Source Code Pro', monospace;
+      color: #0b0c0c;
+      font-size: 14px;
+    }
+
+    /* GOVUK TABS (static) */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 3px solid #1d70b8;
+      margin-bottom: 20px;
+    }
+    .tab {
       padding: 8px 14px;
       font-size: 12px;
-      color: #111;
+      color: #0b0c0c;
+      cursor: pointer;
+      border: 1px solid #b1b4b6;
+      border-bottom: none;
+      background: #f3f2f1;
+      margin-right: 2px;
     }
-    .data-val.mono {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 11.5px;
+    .tab.active {
+      background: #1d70b8;
+      color: #fff;
+      border-color: #1d70b8;
+      font-weight: 700;
     }
 
-    /* PERSONS TABLE */
-    .persons-wrap { border: 1px solid #ddd; margin-top: 0; }
-    .persons-table { width: 100%; border-collapse: collapse; }
-    .persons-table th {
-      background: #f0f0f0;
-      padding: 7px 12px;
-      font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em;
-      color: #333; font-weight: 600; text-align: left;
-      border-bottom: 1px solid #ddd;
+    /* SECTION */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0b0c0c;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #b1b4b6;
     }
-    .persons-table td {
-      padding: 9px 12px; font-size: 11.5px; color: #111;
-      border-bottom: 1px solid #eee; vertical-align: top;
-    }
-    .persons-table tr:last-child td { border-bottom: none; }
 
-    /* CERTIFICATION BLOCK */
-    .cert-block {
-      margin-top: 20px;
-      border: 1.5px solid #1a5276;
-      padding: 18px 20px;
-      background: #f8fbfe;
+    /* GOVUK SUMMARY LIST */
+    .govuk-summary-list {
+      width: 100%;
+      margin-bottom: 24px;
+      border: none;
+    }
+    .govuk-summary-row {
       display: flex;
-      gap: 20px;
-      align-items: flex-start;
+      border-top: 1px solid #b1b4b6;
     }
-    .cert-seal {
+    .govuk-summary-row:last-child { border-bottom: 1px solid #b1b4b6; }
+    .govuk-summary-key {
+      width: 35%;
+      padding: 10px 12px 10px 0;
+      font-size: 13px;
+      color: #0b0c0c;
+      font-weight: 700;
+      vertical-align: top;
       flex-shrink: 0;
-      text-align: center;
     }
-    .cert-seal img {
-      width: 86px; height: 86px; object-fit: contain; opacity: 0.82;
+    .govuk-summary-val {
+      flex: 1;
+      padding: 10px 0;
+      font-size: 13px;
+      color: #0b0c0c;
     }
-    .cert-seal-label { font-size: 8px; color: #888; margin-top: 3px; letter-spacing: 0.08em; }
-    .cert-text-area { flex: 1; }
-    .cert-title {
-      font-size: 11px; font-weight: 700; color: #1a5276;
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+    .govuk-summary-val.mono {
+      font-family: 'Source Code Pro', monospace;
     }
-    .cert-para { font-size: 11px; line-height: 1.75; color: #333; margin-bottom: 8px; }
-    .cert-para:last-child { margin-bottom: 0; }
-    .cert-sig-area { margin-top: 14px; display: flex; justify-content: space-between; align-items: flex-end; }
-    .cert-sig-left {}
-    .cert-sig-name {
-      font-family: 'Source Serif 4', serif;
-      font-size: 17px; font-style: italic; color: #1a5276; margin-bottom: 2px;
-    }
-    .cert-sig-line { width: 180px; height: 1px; background: #1a5276; margin: 6px 0 4px; }
-    .cert-sig-title { font-size: 10px; color: #333; font-weight: 600; }
-    .cert-sig-dept { font-size: 9.5px; color: #666; margin-top: 1px; }
-    .cert-qr { flex-shrink: 0; text-align: center; }
-    .cert-qr-box {
-      width: 60px; height: 60px;
-      border: 1px solid #aaa;
-      display: flex; align-items: center; justify-content: center;
-      background: #fff;
-      font-size: 7px; color: #999; line-height: 1.4; text-align: center;
-    }
-    .cert-qr-label { font-size: 7.5px; color: #999; margin-top: 3px; }
 
-    /* FOOTER */
-    .page-footer {
-      padding: 10px 32px;
-      background: #f4f4f4;
-      border-top: 1px solid #ddd;
+    /* GOVUK TABLE */
+    .govuk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    .govuk-table thead tr {
+      border-bottom: 3px solid #0b0c0c;
+    }
+    .govuk-table th {
+      padding: 10px 10px 10px 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: left;
+      color: #0b0c0c;
+    }
+    .govuk-table td {
+      padding: 10px 10px 10px 0;
+      font-size: 13px;
+      color: #0b0c0c;
+      border-bottom: 1px solid #b1b4b6;
+      vertical-align: top;
+    }
+    .govuk-table td .secondary {
+      font-size: 11px;
+      color: #505a5f;
+      margin-top: 2px;
+    }
+
+    /* INSET TEXT */
+    .govuk-inset {
+      border-left: 5px solid #b1b4b6;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 12.5px;
+      color: #0b0c0c;
+      line-height: 1.7;
+    }
+
+    /* WARNING TEXT */
+    .govuk-warning {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin: 16px 0;
+      font-size: 12.5px;
+      color: #0b0c0c;
+    }
+    .govuk-warning-icon {
+      font-weight: 900;
+      font-size: 22px;
+      color: #0b0c0c;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* PRINT NOTICE */
+    .print-notice {
+      background: #f3f2f1;
+      border: 1px solid #b1b4b6;
+      padding: 12px 16px;
+      margin: 16px 0 8px;
+      font-size: 11.5px;
+      color: #505a5f;
+      line-height: 1.7;
+    }
+    .print-notice strong { color: #0b0c0c; }
+
+    /* CERTIFICATION BOX */
+    .cert-box {
+      border: 2px solid #00703c;
+      padding: 16px;
+      margin: 16px 0;
+      background: #f6fdf9;
+    }
+    .cert-box-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #00703c;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .cert-body { font-size: 12px; color: #0b0c0c; line-height: 1.75; }
+    .cert-sig-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
+      margin-top: 14px;
     }
-    .pf-left { font-size: 8.5px; color: #888; line-height: 1.6; }
-    .pf-right { font-size: 8.5px; color: #1a5276; font-weight: 600; text-align: right; }
-    .pf-right .pf-ref {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 10px; letter-spacing: 0.05em;
+    .cert-sig-block {}
+    .cert-sig-name {
+      font-size: 14px;
+      font-style: italic;
+      color: #0b0c0c;
+      margin-bottom: 4px;
     }
+    .cert-sig-line { width: 180px; height: 1px; background: #0b0c0c; margin: 6px 0 4px; }
+    .cert-sig-role { font-size: 11px; color: #505a5f; }
 
-    .bottom-security {
-      background: #1a5276;
-      height: 5px;
+    /* QR + seal row */
+    .cert-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .cert-right img {
+      width: 70px; height: 70px; object-fit: contain; opacity: 0.78;
+    }
+    .cert-right .seal-lbl { font-size: 8.5px; color: #505a5f; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* GOV.UK FOOTER */
+    .govuk-footer {
+      background: #f3f2f1;
+      border-top: 1px solid #b1b4b6;
+      padding: 14px 20px;
+    }
+    .govuk-footer-meta {
+      font-size: 11px;
+      color: #505a5f;
+      line-height: 1.7;
+    }
+    .govuk-footer-meta a { color: #1d70b8; }
+    .govuk-footer-ref {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #b1b4b6;
+      font-size: 10px;
+      color: #505a5f;
+    }
+    .govuk-footer-ref .ref {
+      font-family: 'Source Code Pro', monospace;
+      color: #0b0c0c;
     }
 
     @media print {
@@ -298,220 +380,215 @@
 </head>
 <body>
 <div class="page">
-  <div class="security-border"></div>
-  <div class="security-strip"></div>
 
-  <!-- HEADER -->
-  <div class="ch-header">
-    <div class="ch-logo-area">
-      <div class="crown-wrap">
-        <!-- St Edward's Crown SVG approximation -->
-        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="36" width="36" height="8" rx="1" fill="#1a5276"/>
-          <rect x="10" y="34" width="32" height="3" fill="#1a5276"/>
-          <!-- Base arches -->
-          <path d="M8 34 Q8 20 18 20 Q24 20 26 28 Q28 20 34 20 Q44 20 44 34" fill="#1a5276"/>
-          <!-- Center arch/orb -->
-          <ellipse cx="26" cy="17" rx="4" ry="5" fill="#1a5276"/>
-          <rect x="24" y="12" width="4" height="6" fill="#1a5276"/>
-          <!-- Left arch ball -->
-          <circle cx="11" cy="20" r="3" fill="#1a5276"/>
-          <!-- Right arch ball -->
-          <circle cx="41" cy="20" r="3" fill="#1a5276"/>
-          <!-- Top cross -->
-          <rect x="24.5" y="6" width="3" height="7" fill="#c8a000"/>
-          <rect x="22" y="9" width="8" height="2.5" fill="#c8a000"/>
-          <!-- Top orb -->
-          <circle cx="26" cy="12" r="2.5" fill="#c8a000"/>
-          <!-- Crown detail lines -->
-          <line x1="8" y1="36" x2="44" y2="36" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <!-- GOV.UK HEADER -->
+  <div class="govuk-header">
+    <div class="govuk-header-logo">
+      <div class="govuk-crown">
+        <!-- Accurate GOV.UK Tudor Crown SVG -->
+        <svg viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <!-- base band -->
+          <rect x="3" y="24" width="26" height="5" rx="0.5" fill="white"/>
+          <!-- band highlight -->
+          <rect x="3" y="25.5" width="26" height="1" fill="rgba(255,255,255,0.3)"/>
+          <!-- left arch -->
+          <path d="M3 24 Q3 14 9 14 Q12 14 13 18 Q14 14 16 14" fill="white"/>
+          <!-- right arch -->
+          <path d="M29 24 Q29 14 23 14 Q20 14 19 18 Q18 14 16 14" fill="white"/>
+          <!-- center finial stem -->
+          <rect x="15" y="6" width="2" height="9" fill="white"/>
+          <!-- center orb -->
+          <circle cx="16" cy="5.5" r="2.5" fill="white"/>
+          <!-- cross top -->
+          <rect x="15" y="1" width="2" height="5" fill="white"/>
+          <rect x="12.5" y="2.5" width="7" height="2" fill="white"/>
+          <!-- left arched ball -->
+          <circle cx="5.5" cy="14" r="2.5" fill="white"/>
+          <!-- right arched ball -->
+          <circle cx="26.5" cy="14" r="2.5" fill="white"/>
+          <!-- left lower stem -->
+          <rect x="4.5" y="14" width="2" height="10" fill="white"/>
+          <!-- right lower stem -->
+          <rect x="25.5" y="14" width="2" height="10" fill="white"/>
         </svg>
       </div>
-      <div class="ch-identity">
-        <h1>Companies House</h1>
-        <div class="ch-sub">Crown Way, Cardiff, CF14 3UZ</div>
-        <div class="ch-web">companieshouse.gov.uk</div>
+      <div>
+        <div class="govuk-header-name">GOV.UK</div>
+        <div class="govuk-header-service">Companies House</div>
       </div>
     </div>
-    <div class="ch-doc-info">
-      <div class="ch-doc-label">Document Type</div>
-      <div class="ch-doc-type">Company Register Extract</div>
-      <div class="ch-doc-num">CH-EBG-2026-0147</div>
-      <div class="ch-doc-date">Issued: 30 June 2026 at 14:22 BST</div>
+    <div class="govuk-header-right">
+      <div class="url">companieshouse.gov.uk</div>
     </div>
   </div>
 
-  <!-- CERTIFIED BANNER -->
-  <div class="certified-banner">
-    <div class="certified-dot"></div>
-    <div class="certified-text">Certified True Extract
-      <span>This document is an official extract from the Companies House Register and is certified as accurate as of the date of issue.</span>
-    </div>
+  <!-- CH SERVICE BANNER -->
+  <div class="ch-service-banner">
+    <div class="ch-service-name">Find and update company information</div>
+    <div class="ch-service-ref">Printed: 30 June 2026 14:22 BST</div>
   </div>
 
-  <!-- COMPANY TITLE -->
-  <div class="company-title-section">
-    <div class="company-title-label">Registered Company Name</div>
-    <div class="company-title-name">EBERSBACHER GROUP LTD</div>
-    <div class="company-num-row">
-      <div class="company-num-item">Company Number: <strong>12847653</strong></div>
-      <div class="company-num-item">Incorporated: <strong>14 March 2008</strong></div>
-      <div><span class="status-pill">Active</span></div>
-    </div>
+  <!-- PHASE BANNER -->
+  <div class="phase-banner">
+    <span class="phase-tag">CERTIFIED</span>
+    This is an official extract from the Companies House public register. <a href="#" style="color:#1d70b8;">Find out more about company information on GOV.UK</a>
   </div>
 
-  <!-- BODY -->
-  <div class="doc-body">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="#">Home</a> <span>&rsaquo;</span>
+    <a href="#">Companies House</a> <span>&rsaquo;</span>
+    Company Information
+  </div>
 
-    <!-- REGISTERED PARTICULARS -->
-    <div class="section">
-      <div class="section-header">Registered Particulars</div>
-      <div class="persons-wrap">
-        <div class="data-row">
-          <div class="data-key">Company Type</div>
-          <div class="data-val">Private Limited Company</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Country of Registration</div>
-          <div class="data-val">England &amp; Wales</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Registered Office</div>
-          <div class="data-val">Whittington Road, Worcester, WR5 2RG, United Kingdom</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Nature of Business</div>
-          <div class="data-val">SIC 64999 — Financial Service Activities (NEC)<br/>SIC 66300 — Fund Management Activities</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Date of Incorporation</div>
-          <div class="data-val">14 March 2008</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Last Accounts Made Up To</div>
-          <div class="data-val">31 December 2024 — Full Accounts (filed on time)</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Last Confirmation Statement</div>
-          <div class="data-val">14 March 2026</div>
-        </div>
-        <div class="data-row">
-          <div class="data-key">Next Confirmation Statement Due</div>
-          <div class="data-val">14 March 2027</div>
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- COMPANY HEADER -->
+    <div class="company-header">
+      <div class="company-status-row">
+        <span class="status-tag-active">Active</span>
+        <span class="company-type-tag">Private limited company</span>
+      </div>
+      <div class="company-main-name">EBERSBACHER GROUP LTD</div>
+      <div class="company-number-row">
+        Company number <strong>12847653</strong>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Incorporated on <strong>14 March 2008</strong>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-bar">
+      <div class="tab active">Company overview</div>
+      <div class="tab">Filing history</div>
+      <div class="tab">People</div>
+      <div class="tab">More&nbsp;&rsaquo;</div>
+    </div>
+
+    <!-- REGISTERED OFFICE -->
+    <div class="section-title">Registered office address</div>
+    <div class="govuk-summary-list" style="margin-bottom:20px;">
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Address</div>
+        <div class="govuk-summary-val">Whittington Road, Worcester, WR5 2RG, United Kingdom</div>
+      </div>
+    </div>
+
+    <!-- COMPANY DETAILS -->
+    <div class="section-title">Company details</div>
+    <div class="govuk-summary-list">
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Company status</div>
+        <div class="govuk-summary-val"><strong style="color:#00703c;">Active</strong></div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Company type</div>
+        <div class="govuk-summary-val">Private limited company</div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Incorporated on</div>
+        <div class="govuk-summary-val">14 March 2008</div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Nature of business (SIC)</div>
+        <div class="govuk-summary-val">
+          64999 — Financial service activities, not elsewhere classified<br/>
+          66300 — Fund management activities
         </div>
       </div>
     </div>
 
-    <!-- OFFICERS -->
-    <div class="section">
-      <div class="section-header">Current Officers — Persons with Significant Control</div>
-      <div class="persons-wrap">
-        <table class="persons-table">
-          <thead>
-            <tr>
-              <th>Full Name</th>
-              <th>Designation</th>
-              <th>Appointed</th>
-              <th>Nationality</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Mario Ebersbacher</strong></td>
-              <td>Director &amp; Chief Executive Officer<br/><span style="font-size:10px;color:#666;">Person with Significant Control (PSC) — Owns &gt;75% voting rights</span></td>
-              <td>14 Mar 2008</td>
-              <td>German / British</td>
-              <td><span class="status-pill">Active</span></td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- ACCOUNTS -->
+    <div class="section-title">Accounts</div>
+    <div class="govuk-summary-list">
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Last accounts made up to</div>
+        <div class="govuk-summary-val">31 December 2024 (Full accounts)</div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Accounts overdue?</div>
+        <div class="govuk-summary-val"><strong style="color:#00703c;">No</strong></div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Confirmation statement last made up to</div>
+        <div class="govuk-summary-val">14 March 2026</div>
+      </div>
+      <div class="govuk-summary-row">
+        <div class="govuk-summary-key">Confirmation statement overdue?</div>
+        <div class="govuk-summary-val"><strong style="color:#00703c;">No</strong></div>
       </div>
     </div>
 
-    <!-- CERTIFICATION -->
-    <div class="cert-block">
-      <div class="cert-seal">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
-        <div class="cert-seal-label">OFFICIAL SEAL</div>
+    <!-- PEOPLE -->
+    <div class="section-title">Current officers</div>
+    <table class="govuk-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Appointed on</th>
+          <th>Nationality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Ebersbacher, Mario</strong>
+            <div class="secondary">Date of birth: August 1974</div>
+          </td>
+          <td>
+            Director
+            <div class="secondary">Person with significant control (PSC)<br/>Ownership of shares: More than 75%</div>
+          </td>
+          <td>14 March 2008</td>
+          <td>German / British</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- INSOLVENCY NOTICE -->
+    <div class="govuk-inset">
+      There are no insolvency cases for this company. No charges, mortgages, or debentures are registered against this company.
+    </div>
+
+    <!-- PRINT NOTICE -->
+    <div class="print-notice">
+      <strong>About this document:</strong> This page is an official extract from the Companies House public register of companies in England and Wales maintained under the Companies Act 2006. This information reflects the public register as at <strong>30 June 2026 at 14:22 BST</strong>. To verify this information independently, visit <strong>find-and-update.company-information.service.gov.uk</strong> and search for company number <strong>12847653</strong>.
+    </div>
+
+    <!-- CERTIFICATION BOX -->
+    <div class="cert-box">
+      <div class="cert-box-title">&#10003; Certified True Extract</div>
+      <div class="cert-body">
+        I, the undersigned, being an authorised officer of Companies House, certify that this is a true and accurate extract from the Companies House register as at the date and time stated herein. This document is issued pursuant to section 1085 of the Companies Act 2006.
       </div>
-      <div class="cert-text-area">
-        <div class="cert-title">Certificate of Authenticity</div>
-        <p class="cert-para">I certify that this is a true and accurate extract from the Companies House register of companies maintained under the Companies Act 2006 for the company named herein, taken as at the date and time stated on this document.</p>
-        <p class="cert-para">This extract confirms that the company is incorporated in England and Wales and that the information shown reflects the public register as at the date of issue. Verification can be obtained at <strong>find-and-update.company-information.service.gov.uk</strong> using company number <strong>12847653</strong>.</p>
-        <div class="cert-sig-area">
-          <div class="cert-sig-left">
-            <div class="cert-sig-name">Sarah M. Blackwood</div>
-            <div class="cert-sig-line"></div>
-            <div class="cert-sig-title">Authorised Registrar</div>
-            <div class="cert-sig-dept">Companies House, Cardiff</div>
-          </div>
-          <div class="cert-qr">
-            <div class="cert-qr-box">
-              <!-- Minimal fake QR pattern -->
-              <svg width="48" height="48" viewBox="0 0 48 48">
-                <rect width="48" height="48" fill="#fff"/>
-                <!-- TL finder -->
-                <rect x="2" y="2" width="14" height="14" fill="#111"/>
-                <rect x="4" y="4" width="10" height="10" fill="#fff"/>
-                <rect x="6" y="6" width="6" height="6" fill="#111"/>
-                <!-- TR finder -->
-                <rect x="32" y="2" width="14" height="14" fill="#111"/>
-                <rect x="34" y="4" width="10" height="10" fill="#fff"/>
-                <rect x="36" y="6" width="6" height="6" fill="#111"/>
-                <!-- BL finder -->
-                <rect x="2" y="32" width="14" height="14" fill="#111"/>
-                <rect x="4" y="34" width="10" height="10" fill="#fff"/>
-                <rect x="6" y="36" width="6" height="6" fill="#111"/>
-                <!-- Data modules -->
-                <rect x="18" y="2" width="2" height="2" fill="#111"/>
-                <rect x="22" y="2" width="2" height="2" fill="#111"/>
-                <rect x="26" y="4" width="2" height="2" fill="#111"/>
-                <rect x="18" y="6" width="4" height="2" fill="#111"/>
-                <rect x="24" y="8" width="2" height="2" fill="#111"/>
-                <rect x="18" y="18" width="2" height="2" fill="#111"/>
-                <rect x="22" y="20" width="4" height="2" fill="#111"/>
-                <rect x="28" y="18" width="2" height="4" fill="#111"/>
-                <rect x="32" y="20" width="2" height="2" fill="#111"/>
-                <rect x="36" y="18" width="4" height="2" fill="#111"/>
-                <rect x="42" y="22" width="4" height="2" fill="#111"/>
-                <rect x="18" y="24" width="2" height="4" fill="#111"/>
-                <rect x="22" y="26" width="2" height="2" fill="#111"/>
-                <rect x="26" y="24" width="4" height="2" fill="#111"/>
-                <rect x="36" y="24" width="2" height="2" fill="#111"/>
-                <rect x="40" y="26" width="4" height="2" fill="#111"/>
-                <rect x="18" y="30" width="2" height="2" fill="#111"/>
-                <rect x="22" y="32" width="4" height="2" fill="#111"/>
-                <rect x="28" y="30" width="2" height="2" fill="#111"/>
-                <rect x="18" y="36" width="6" height="2" fill="#111"/>
-                <rect x="26" y="36" width="2" height="4" fill="#111"/>
-                <rect x="30" y="38" width="4" height="2" fill="#111"/>
-                <rect x="36" y="32" width="6" height="2" fill="#111"/>
-                <rect x="40" y="36" width="2" height="6" fill="#111"/>
-                <rect x="44" y="40" width="2" height="4" fill="#111"/>
-              </svg>
-            </div>
-            <div class="cert-qr-label">Verify online</div>
-          </div>
+      <div class="cert-sig-row">
+        <div class="cert-sig-block">
+          <div class="cert-sig-name">Sarah M. Blackwood</div>
+          <div class="cert-sig-line"></div>
+          <div class="cert-sig-role">Authorised Registrar &mdash; Companies House, Cardiff, CF14 3UZ</div>
+        </div>
+        <div class="cert-right">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
+          <div class="seal-lbl">Official Seal</div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- PAGE FOOTER -->
-  <div class="page-footer">
-    <div class="pf-left">
-      Companies House is an Executive Agency of the Department for Business and Trade &bull; Crown Copyright<br/>
-      This extract is valid only as of the date and time of issue. Unauthorised alteration is a criminal offence under the Fraud Act 2006.
+  <!-- GOV.UK FOOTER -->
+  <div class="govuk-footer">
+    <div class="govuk-footer-meta">
+      All content is available under the <a href="#">Open Government Licence v3.0</a>, except where otherwise stated &copy; Crown copyright
     </div>
-    <div class="pf-right">
-      <div class="pf-ref">CH-EBG-2026-0147</div>
-      <div style="font-size:8px;color:#aaa;margin-top:2px;">Page 1 of 1</div>
+    <div class="govuk-footer-ref">
+      <span>Companies House &bull; An executive agency of the Department for Business and Trade</span>
+      <span class="ref">CH-EBG-2026-0147 &bull; Page 1 of 1</span>
     </div>
   </div>
 
-  <div class="bottom-security"></div>
 </div>
 </body>
 </html>
