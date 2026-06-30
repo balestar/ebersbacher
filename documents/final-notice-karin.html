@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Notice — Ebersbacher Group Ltd.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: #d0ccc7;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 13px;
+      color: #111;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .top-rule { height: 6px; background: #1D3571; }
+    .top-rule::after { content: ''; display: block; height: 2.5px; background: #F2A818; }
+
+    /* LETTERHEAD */
+    .letterhead {
+      padding: 22px 42px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #ccc;
+    }
+    .lh-brand { display: flex; align-items: center; gap: 13px; }
+    .lh-brand img { width: 56px; height: 56px; object-fit: contain; }
+    .lh-name { font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 600; color: #1D3571; letter-spacing: 0.03em; }
+    .lh-tagline { font-size: 8.5px; color: #999; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 4px; }
+    .lh-right { text-align: right; font-size: 10.5px; color: #555; line-height: 1.8; }
+    .lh-right strong { color: #1D3571; }
+
+    /* META */
+    .doc-meta {
+      padding: 11px 42px;
+      background: #f7f7f7;
+      border-bottom: 1px solid #ddd;
+      display: flex; gap: 0;
+    }
+    .dmi { flex: 1; border-right: 1px solid #ddd; padding: 0 16px; }
+    .dmi:first-child { padding-left: 0; }
+    .dmi:last-child { border-right: none; }
+    .dmi-label { font-size: 8px; color: #999; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px; }
+    .dmi-value { font-size: 11.5px; color: #1D3571; font-weight: 600; }
+    .dmi-value.mono { font-family: 'Source Code Pro', monospace; font-size: 11px; }
+
+    /* BODY */
+    .doc-body { padding: 32px 42px 0; flex: 1; }
+
+    .addressee { font-size: 12.5px; color: #111; line-height: 1.8; margin-bottom: 16px; }
+    .date-line { font-size: 12.5px; color: #111; margin-bottom: 14px; }
+
+    .re-line {
+      background: #f0f4fb;
+      border-left: 4px solid #1D3571;
+      padding: 9px 14px;
+      margin-bottom: 22px;
+      font-size: 12px; color: #1D3571; font-weight: 700;
+    }
+
+    .salutation { font-size: 13px; color: #111; margin-bottom: 20px; }
+
+    .para { font-size: 12.5px; line-height: 2; color: #222; margin-bottom: 16px; text-align: justify; }
+    .para strong { color: #1D3571; }
+
+    /* THE KEY STATEMENT */
+    .key-statement {
+      border: 1.5px solid #1D3571;
+      padding: 18px 20px;
+      margin: 22px 0;
+      background: #f0f4fb;
+      font-size: 13px;
+      color: #1D3571;
+      line-height: 1.9;
+      font-weight: 500;
+    }
+    .key-statement strong { font-weight: 700; }
+
+    /* DEADLINE */
+    .deadline {
+      border-left: 4px solid #F2A818;
+      background: #fdf9f0;
+      padding: 12px 16px;
+      margin: 20px 0;
+      font-size: 12.5px; color: #333; line-height: 1.8;
+    }
+    .deadline strong { color: #1D3571; }
+
+    /* SIGNATURE */
+    .sig-block { padding: 28px 42px 16px; }
+    .sig-closing { font-size: 12.5px; color: #222; margin-bottom: 36px; }
+    .sig-line { width: 210px; height: 1px; background: #1D3571; margin-bottom: 7px; }
+    .sig-name { font-family: 'Source Serif 4', serif; font-size: 17px; font-style: italic; color: #1D3571; }
+    .sig-role { font-size: 11px; color: #333; font-weight: 600; margin-top: 3px; }
+    .sig-co { font-size: 10.5px; color: #999; margin-top: 2px; }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid #ddd;
+      padding: 9px 42px 14px;
+      background: #faf9f7;
+      margin-top: auto;
+    }
+    .footer-text {
+      font-size: 8.5px; color: #aaa;
+      display: flex; justify-content: space-between;
+    }
+    .footer-ref { font-family: 'Source Code Pro', monospace; font-size: 9px; color: #1D3571; font-weight: 600; }
+
+    .bottom-rule { height: 6px; background: #1D3571; }
+    .bottom-rule::before { content: ''; display: block; height: 2.5px; background: #F2A818; }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="top-rule"></div>
+
+  <div class="letterhead">
+    <div class="lh-brand">
+      <img src="ebersbacher-website/images/logo.png" alt="Ebersbacher Group"/>
+      <div>
+        <div class="lh-name">Ebersbacher Group Ltd.</div>
+        <div class="lh-tagline">Private Wealth &amp; Investment Management</div>
+      </div>
+    </div>
+    <div class="lh-right">
+      Whittington Road, Worcester, WR5 2RG<br/>
+      United Kingdom<br/>
+      <strong>mario@ebersbacher.co.uk</strong><br/>
+      ebersbacher.co.uk &nbsp;|&nbsp; Co. No. 12847653
+    </div>
+  </div>
+
+  <div class="doc-meta">
+    <div class="dmi">
+      <div class="dmi-label">Date</div>
+      <div class="dmi-value">30 June 2026</div>
+    </div>
+    <div class="dmi">
+      <div class="dmi-label">Reference</div>
+      <div class="dmi-value mono">EBG-LOI-2026-0630-R2</div>
+    </div>
+    <div class="dmi">
+      <div class="dmi-label">Re</div>
+      <div class="dmi-value">Revised Condition — Final Position</div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="addressee">
+      <strong>Ms. Karin Seegardel</strong><br/>
+      Nordic Equine Leadership Institute<br/>
+      Denmark
+    </div>
+
+    <div class="date-line">30 June 2026</div>
+
+    <div class="re-line">RE: Revised Condition Precedent — Letter of Intent EBG-LOI-2026-0630</div>
+
+    <p class="salutation">Dear Ms. Seegardel,</p>
+
+    <p class="para">
+      Thank you for your response to our Letter of Intent. We have considered your position and, given our genuine interest in this opportunity, we are prepared to make a single, goodwill concession on the condition precedent.
+    </p>
+
+    <p class="para">
+      We are reducing the required demonstration of available funds from <strong>€120,000 (10%)</strong> to <strong>€60,000 (5%)</strong> of the total investment commitment. This is our final and only revision to the terms of the LOI. All other terms remain unchanged.
+    </p>
+
+    <div class="key-statement">
+      If you are unable to satisfy this revised condition, we will consider this transaction closed and will direct our client's investment interest to other opportunities. <strong>We have a number of comparable projects under review and our client's capital will not remain uncommitted indefinitely.</strong>
+    </div>
+
+    <p class="para">
+      We want to be straightforward with you: we are not in the business of deploying €1,200,000 of client capital into a transaction where the counterparty has no measurable stake or commitment. The condition precedent is not a formality — it is our assurance that you are as serious about this transaction as we are.
+    </p>
+
+    <p class="para">
+      We have no further documentation requirements from you at this stage. A simple confirmation of your ability to meet the revised condition is all that is needed to move forward.
+    </p>
+
+    <div class="deadline">
+      <strong>Please respond by 7 July 2026.</strong> If we do not hear from you by this date, we will proceed on the basis that you are unable to satisfy the condition and will formally close this LOI. Our client's funds will be redirected accordingly.
+    </div>
+
+    <p class="para">
+      We genuinely hope you are able to meet this revised requirement. The project is of interest to us and we would prefer to proceed. The next step is entirely yours.
+    </p>
+
+    <p class="para">Yours sincerely,</p>
+  </div>
+
+  <div class="sig-block">
+    <div class="sig-line"></div>
+    <div class="sig-name">Mario Ebersbacher</div>
+    <div class="sig-role">Chief Executive Officer</div>
+    <div class="sig-co">Ebersbacher Group Ltd. &nbsp;|&nbsp; Co. No. 12847653</div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">
+      <span>Ebersbacher Group Ltd. &bull; Whittington Road, Worcester, WR5 2RG &bull; ebersbacher.co.uk</span>
+      <span class="footer-ref">EBG-LOI-2026-0630-R2</span>
+    </div>
+  </div>
+
+  <div class="bottom-rule"></div>
+</div>
+</body>
+</html>
