@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Investor Mandate Confirmation — Ebersbacher Group Ltd.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --navy: #1D3571;
+      --gold: #F2A818;
+      --gold-light: #F7C455;
+      --grey: #6B7280;
+      --border: #D4C5A0;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8e4dc;
+      color: #1a1a2e;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      position: relative;
+    }
+
+    .top-stripe {
+      height: 6px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    }
+
+    /* LETTERHEAD */
+    .letterhead {
+      padding: 28px 48px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .letterhead-brand { display: flex; align-items: center; gap: 14px; }
+    .letterhead-brand img { width: 62px; height: 62px; object-fit: contain; border-radius: 3px; }
+    .letterhead-wordmark .company-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px; font-weight: 600;
+      color: var(--navy); letter-spacing: 0.05em; line-height: 1;
+    }
+    .letterhead-wordmark .company-tag {
+      font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-top: 4px;
+    }
+    .letterhead-address {
+      text-align: right;
+      font-size: 10px; color: var(--grey); line-height: 1.7;
+    }
+    .letterhead-address a { color: var(--navy); text-decoration: none; }
+
+    /* META BAR */
+    .meta-bar {
+      background: #f8f7f4;
+      border-bottom: 2px solid var(--gold);
+      padding: 9px 48px;
+      display: flex; gap: 40px;
+    }
+    .meta-item { font-size: 10px; color: var(--grey); }
+    .meta-item strong { color: var(--navy); }
+
+    /* CONFIDENTIAL RIBBON */
+    .confidential-ribbon {
+      background: var(--navy);
+      text-align: center; padding: 7px;
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700;
+    }
+
+    /* BODY */
+    .doc-body { padding: 32px 48px; }
+
+    .doc-tag {
+      font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 10px;
+    }
+    .doc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 600; color: var(--navy);
+      line-height: 1.2; margin-bottom: 24px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+
+    .salutation { font-size: 13px; color: var(--navy); margin-bottom: 20px; font-weight: 500; }
+    .body-text { font-size: 12.5px; line-height: 1.9; color: #3a3a5c; margin-bottom: 16px; }
+
+    /* MANDATE DETAILS BOX */
+    .mandate-box {
+      border: 1.5px solid var(--navy);
+      background: #f8f7f4;
+      margin: 22px 0;
+    }
+    .mandate-box-header {
+      background: var(--navy);
+      padding: 10px 18px;
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700;
+    }
+    .mandate-table { width: 100%; border-collapse: collapse; }
+    .mandate-table tr { border-bottom: 1px solid #ede8dc; }
+    .mandate-table tr:last-child { border-bottom: none; }
+    .mandate-table td { padding: 10px 18px; font-size: 12px; vertical-align: top; }
+    .mandate-table td:first-child { color: var(--grey); width: 42%; font-size: 11px; }
+    .mandate-table td:last-child { color: #1a1a2e; font-weight: 500; }
+
+    /* TERMS BOX */
+    .terms-box {
+      border-left: 4px solid var(--gold);
+      background: #faf8f2;
+      padding: 18px 22px; margin: 22px 0;
+    }
+    .terms-box-title {
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 12px;
+    }
+    .terms-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 6px 0; border-bottom: 1px solid #ede8dc; font-size: 12px;
+    }
+    .terms-item:last-child { border-bottom: none; }
+    .terms-dot { width: 6px; height: 6px; background: var(--gold); flex-shrink: 0; margin-top: 5px; }
+    .terms-item-text { color: #3a3a5c; line-height: 1.6; }
+
+    /* DUAL SIGNATURE */
+    .dual-sig {
+      display: flex; gap: 40px;
+      margin-top: 36px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sig-col { flex: 1; }
+    .sig-label {
+      font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 16px;
+    }
+    .sig-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-style: italic; color: var(--navy); margin-bottom: 4px;
+    }
+    .sig-line { width: 100%; height: 1px; background: var(--navy); margin: 8px 0 6px; }
+    .sig-title { font-size: 11px; color: var(--navy); font-weight: 600; }
+    .sig-detail { font-size: 10px; color: var(--grey); margin-top: 3px; }
+
+    .seal-col {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-end; gap: 4px; min-width: 110px;
+    }
+    .seal-col img { width: 96px; height: 96px; object-fit: contain; opacity: 0.85; }
+    .seal-col-label { font-size: 8.5px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* FOOTER */
+    .doc-footer {
+      margin: 16px 48px 20px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+    }
+    .doc-footer-note { font-size: 8.5px; color: #bbb; line-height: 1.6; max-width: 360px; }
+    .doc-footer-ref { font-size: 8.5px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; }
+
+    .bottom-stripe {
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="top-stripe"></div>
+
+  <!-- LETTERHEAD -->
+  <div class="letterhead">
+    <div class="letterhead-brand">
+      <img src="ebersbacher-website/images/logo.png" alt="Ebersbacher Group"/>
+      <div class="letterhead-wordmark">
+        <div class="company-name">Ebersbacher Group</div>
+        <div class="company-tag">Private Wealth &amp; Investment Management</div>
+      </div>
+    </div>
+    <div class="letterhead-address">
+      Whittington Road, Worcester<br/>
+      WR5 2RG, United Kingdom<br/>
+      <a href="mailto:team@ebersbacher.co.uk">team@ebersbacher.co.uk</a><br/>
+      ebersbacher.co.uk<br/>
+      Co. No. 12847653
+    </div>
+  </div>
+
+  <!-- META BAR -->
+  <div class="meta-bar">
+    <div class="meta-item"><strong>Date:</strong> 30 June 2026</div>
+    <div class="meta-item"><strong>Reference:</strong> EBG-IMC-2026-0630</div>
+    <div class="meta-item"><strong>Mandate ID:</strong> EBG-M-2026-047</div>
+  </div>
+
+  <div class="confidential-ribbon">Strictly Confidential — Client Information</div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+    <div class="doc-tag">Investor Mandate</div>
+    <h1 class="doc-title">Confirmation of Investor Mandate &amp;<br/>Engagement Authority</h1>
+
+    <p class="salutation">To Whom It May Concern,</p>
+
+    <p class="body-text">
+      Ebersbacher Group Ltd. hereby issues this formal Investor Mandate Confirmation to certify that the company has been duly instructed and mandated by its private investor client to act as exclusive investment representative and financial intermediary in connection with the acquisition opportunity detailed herein.
+    </p>
+
+    <div class="mandate-box">
+      <div class="mandate-box-header">Mandate &amp; Transaction Details</div>
+      <table class="mandate-table">
+        <tr>
+          <td>Mandate Holder</td>
+          <td>Ebersbacher Group Ltd. (Co. No. 12847653)</td>
+        </tr>
+        <tr>
+          <td>Authorized Representative</td>
+          <td>Mario Ebersbacher, Chief Executive Officer</td>
+        </tr>
+        <tr>
+          <td>Investor Type</td>
+          <td>High Net Worth Private Individual (UHNW Client)</td>
+        </tr>
+        <tr>
+          <td>Mandate Classification</td>
+          <td>Exclusive Investment Advisory &amp; Execution Mandate</td>
+        </tr>
+        <tr>
+          <td>Target Investment</td>
+          <td>Nordic Equine Leadership Institute — Villa 67, Denmark</td>
+        </tr>
+        <tr>
+          <td>Total Investment Commitment</td>
+          <td>€1,200,000 (One Million Two Hundred Thousand Euros)</td>
+        </tr>
+        <tr>
+          <td>Initial Disbursement</td>
+          <td>€730,400 — upon fulfillment of condition precedent</td>
+        </tr>
+        <tr>
+          <td>Balance Payment</td>
+          <td>€469,600 — within 2 calendar months of initial disbursement</td>
+        </tr>
+        <tr>
+          <td>LOI Reference</td>
+          <td>EBG-LOI-2026-0630</td>
+        </tr>
+        <tr>
+          <td>Mandate Issued</td>
+          <td>30 June 2026</td>
+        </tr>
+        <tr>
+          <td>Mandate Status</td>
+          <td><strong style="color:#16a34a;">Active &amp; Binding</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="terms-box">
+      <div class="terms-box-title">Terms of Mandate — Key Provisions</div>
+      <div class="terms-item">
+        <div class="terms-dot"></div>
+        <div class="terms-item-text">Ebersbacher Group Ltd. is exclusively authorized to negotiate, correspond, and enter into legal agreements on behalf of the investor in connection with the above transaction</div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-dot"></div>
+        <div class="terms-item-text">Investor funds are confirmed as committed and available, subject to the fulfillment of the condition precedent outlined in LOI Reference EBG-LOI-2026-0630</div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-dot"></div>
+        <div class="terms-item-text">All investor identity and source-of-funds documentation has been verified by Ebersbacher Group Ltd. in accordance with UK AML/KYC regulatory requirements under the Money Laundering Regulations 2017</div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-dot"></div>
+        <div class="terms-item-text">Ebersbacher Group Ltd. accepts full fiduciary responsibility for the proper execution of this mandate in the best interest of its client</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      Ebersbacher Group Ltd. confirms that appropriate due diligence on both the investor and the target investment has been conducted in accordance with applicable UK financial regulations. The investor's commitment is genuine, funded, and ready to be deployed upon the satisfaction of the agreed conditions precedent.
+    </p>
+
+    <!-- SIGNATURES -->
+    <div class="dual-sig">
+      <div class="sig-col">
+        <div class="sig-label">Authorized Signatory — Fund Manager</div>
+        <div class="sig-name">Mario Ebersbacher</div>
+        <div class="sig-line"></div>
+        <div class="sig-title">Chief Executive Officer</div>
+        <div class="sig-detail">Ebersbacher Group Ltd.</div>
+        <div class="sig-detail">Worcester, 30 June 2026</div>
+      </div>
+      <div class="sig-col">
+        <div class="sig-label">Compliance Attestation</div>
+        <div class="sig-name">E. Hartmann</div>
+        <div class="sig-line"></div>
+        <div class="sig-title">Head of Compliance &amp; Risk</div>
+        <div class="sig-detail">Ebersbacher Group Ltd.</div>
+        <div class="sig-detail">Worcester, 30 June 2026</div>
+      </div>
+      <div class="seal-col">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
+        <div class="seal-col-label">Company Seal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="doc-footer-note">
+      This mandate confirmation is issued on official letterhead of Ebersbacher Group Ltd. (Co. No. 12847653). Client identity details are withheld pursuant to applicable UK data protection laws and financial privacy regulations. This document is strictly confidential and intended solely for the named recipients.
+    </div>
+    <div class="doc-footer-ref">EBG-IMC-2026-0630</div>
+  </div>
+
+  <div class="bottom-stripe"></div>
+</div>
+</body>
+</html>
