@@ -14,7 +14,8 @@
     html{scroll-behavior:smooth;}
     body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--navy);}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(29,53,113,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(242,168,24,0.25);}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(29,53,113,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(242,168,24,0.25);}
     .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
     .nav-brand img{width:44px;height:44px;object-fit:contain;border-radius:3px;}
     .nav-brand-text .name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:0.05em;line-height:1;}
@@ -24,6 +25,16 @@
     .nav-links a:hover,.nav-links a.active{color:var(--gold);}
     .nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
     .nav-cta:hover{background:var(--gold-light);}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;inset:0;top:72px;background:rgba(29,53,113,0.98);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:0;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-size:22px;letter-spacing:0.08em;text-transform:uppercase;font-family:'Cormorant Garamond',serif;color:#fff;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(242,168,24,0.15);width:80%;text-align:center;transition:color 0.2s;}
+    .mobile-menu a:hover{color:var(--gold);}
+    .mobile-menu .mobile-cta{margin-top:28px;background:var(--gold);color:var(--navy);padding:14px 40px;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border-bottom:none;font-family:'Inter',sans-serif;}
 
     /* PAGE HERO */
     .page-hero{padding-top:72px;background:var(--navy);position:relative;overflow:hidden;}
@@ -34,12 +45,12 @@
     .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
     .eyebrow-line{width:32px;height:1px;background:var(--gold);}
     .eyebrow span{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px;}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px;}
     .page-title em{font-style:italic;color:var(--gold-light);}
     .page-sub{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:580px;}
     .gold-stripe{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));position:relative;z-index:2;}
 
-    /* ABOUT SECTION */
+    /* ABOUT */
     .about{padding:100px 60px;background:#fff;}
     .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start;}
     .about-image-col{position:relative;}
@@ -47,9 +58,9 @@
     .about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--navy);padding:22px 24px;min-width:180px;}
     .about-badge-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:600;}
     .about-badge-title{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:4px;}
-    .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:20px;}
+    .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,48px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:20px;}
     .about-body{font-size:13.5px;line-height:1.9;color:var(--grey);margin-bottom:16px;}
-    .about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:18px;margin:28px 0;line-height:1.5;}
+    .about-quote{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:18px;margin:28px 0;line-height:1.5;}
     .credentials{display:flex;flex-direction:column;gap:0;margin-top:24px;border-top:1px solid var(--border);padding-top:20px;}
     .credential{display:flex;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
     .credential:last-child{border-bottom:none;}
@@ -61,7 +72,7 @@
     .award-image{flex-shrink:0;max-width:520px;overflow:hidden;border:3px solid rgba(242,168,24,0.3);}
     .award-image img{width:100%;display:block;}
     .award-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;}
-    .award-heading{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;}
+    .award-heading{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;}
     .award-heading em{font-style:italic;color:var(--gold-light);}
     .award-body{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:420px;}
 
@@ -70,7 +81,7 @@
     .location img{width:100%;height:100%;object-fit:cover;}
     .location-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(29,53,113,0.88) 40%,rgba(29,53,113,0.2) 100%);}
     .location-content{position:absolute;top:50%;left:60px;transform:translateY(-50%);max-width:460px;}
-    .location-content h3{font-family:'Cormorant Garamond',serif;font-size:36px;color:#fff;font-weight:300;margin-bottom:10px;}
+    .location-content h3{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;font-weight:300;margin-bottom:10px;}
     .location-content h3 em{font-style:italic;color:var(--gold-light);}
     .location-content p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;}
     .location-address{margin-top:20px;display:flex;flex-direction:column;gap:5px;}
@@ -80,7 +91,7 @@
     /* CONTACT */
     .contact-section{padding:100px 60px;background:var(--cream);}
     .contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
-    .contact-info h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--navy);margin-bottom:16px;}
+    .contact-info h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--navy);margin-bottom:16px;}
     .contact-info p{font-size:13.5px;color:var(--grey);line-height:1.85;margin-bottom:32px;}
     .contact-detail{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
     .contact-row{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);}
@@ -97,12 +108,7 @@
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
     .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
     .form-group label{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);font-weight:600;}
-    .form-group input,.form-group select,.form-group textarea{
-      background:#fff;border:1px solid var(--border);
-      padding:12px 14px;font-size:13px;color:var(--navy);
-      font-family:'Inter',sans-serif;outline:none;
-      transition:border-color 0.2s;
-    }
+    .form-group input,.form-group select,.form-group textarea{background:#fff;border:1px solid var(--border);padding:12px 14px;font-size:13px;color:var(--navy);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;width:100%;}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
     .form-group textarea{resize:vertical;min-height:110px;}
     .form-group select{appearance:none;cursor:pointer;}
@@ -122,6 +128,74 @@
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
     .footer-legal{font-size:10px;color:rgba(255,255,255,0.25);}
     .footer-domain{font-size:10px;color:var(--gold);letter-spacing:0.1em;}
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — TABLET ≤ 1024px
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav { padding: 0 32px; }
+      .nav-links { gap: 20px; }
+      .page-hero-content { padding: 60px 32px 50px; }
+      .about { padding: 80px 32px; }
+      .about-inner { gap: 48px; }
+      .award-strip { padding: 48px 32px; gap: 36px; }
+      .award-image { max-width: 380px; }
+      .location-content { left: 32px; max-width: 380px; }
+      .contact-section { padding: 80px 32px; }
+      .contact-inner { gap: 48px; }
+      footer { padding: 48px 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — MOBILE ≤ 768px
+    ══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; height: 64px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .page-hero-content { padding: 48px 20px 40px; }
+      .page-sub { font-size: 13px; }
+
+      /* About */
+      .about { padding: 52px 20px 64px; }
+      .about-inner { grid-template-columns: 1fr; gap: 0; }
+      .about-image-col { margin-bottom: 60px; }
+      .about-badge { right: 0; bottom: -18px; }
+      .about-body { font-size: 13px; }
+      .about-quote { font-size: 17px; }
+
+      /* Award strip */
+      .award-strip { flex-direction: column; gap: 28px; padding: 40px 20px; }
+      .award-image { max-width: 100%; width: 100%; }
+
+      /* Location */
+      .location { height: 320px; }
+      .location-overlay { background: linear-gradient(to bottom, rgba(29,53,113,0.5), rgba(29,53,113,0.9)); }
+      .location-content { left: 20px; right: 20px; max-width: 100%; }
+      .location-content h3 { font-size: 24px; }
+      .location-content p { display: none; }
+
+      /* Contact section */
+      .contact-section { padding: 52px 20px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-info h2 { font-size: 28px; }
+
+      /* Form */
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+
+      /* Footer */
+      footer { padding: 40px 20px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-brand-desc { max-width: 100%; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .about-badge { position: static; margin-top: 12px; }
+      .location { height: 280px; }
+    }
   </style>
 </head>
 <body>
@@ -141,7 +215,18 @@
     <a href="contact.html" class="active">Contact</a>
     <a href="contact.html" class="nav-cta">Enquire</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-cta">Enquire Now</a>
+</div>
 
 <div class="page-hero">
   <div class="page-hero-bg">
@@ -156,7 +241,6 @@
   <div class="gold-stripe"></div>
 </div>
 
-<!-- ABOUT -->
 <section class="about">
   <div class="about-inner">
     <div class="about-image-col">
@@ -173,7 +257,7 @@
         Mario Ebersbacher founded Ebersbacher Group with a singular conviction: that private wealth clients deserve the same level of rigour, intelligence, and discretion once reserved only for the largest institutional investors. Over 18 years in private wealth and investment management, he has built a firm that reflects that belief in every client relationship.
       </p>
       <p class="about-body">
-        Operating from Worcester in the heart of England, Mario and his team work with high-net-worth individuals, family offices, and institutional partners across twelve European markets. His particular expertise lies in cross-border investment structuring, strategic capital deployment, and long-term portfolio advisory.
+        Operating from Worcester in the heart of England, Mario and his team work with high-net-worth individuals, family offices, and institutional partners across twelve European markets. His expertise lies in cross-border investment structuring, strategic capital deployment, and long-term portfolio advisory.
       </p>
       <blockquote class="about-quote">
         "Every client is an individual, not a category. Our job is to understand what truly matters to you — and to build a strategy that honours that."
@@ -188,10 +272,9 @@
   </div>
 </section>
 
-<!-- AWARD STRIP -->
 <div class="award-strip">
   <div class="award-image">
-    <img src="images/mario-award.png" alt="Herausragende Vermögensverwaltung 2018 Award"/>
+    <img src="images/mario-award.png" alt="Herausragende Vermögensverwaltung 2018"/>
   </div>
   <div>
     <div class="award-label">Industry Recognition</div>
@@ -200,13 +283,12 @@
   </div>
 </div>
 
-<!-- LOCATION -->
 <div class="location">
   <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
   <div class="location-overlay"></div>
   <div class="location-content">
     <h3>Based in <em>Worcester,</em><br/>serving Europe.</h3>
-    <p>Our principal office is located in Worcester, United Kingdom — a historic city at the heart of England, well-connected to London and the wider European market.</p>
+    <p>Our principal office is in Worcester, United Kingdom — well-connected to London and the wider European market.</p>
     <div class="location-address">
       <span><strong>Ebersbacher Group Ltd.</strong></span>
       <span>Whittington Road, Worcester</span>
@@ -216,7 +298,6 @@
   </div>
 </div>
 
-<!-- CONTACT -->
 <section class="contact-section">
   <div class="contact-inner">
     <div class="contact-info">
@@ -257,7 +338,7 @@
           </div>
           <div>
             <div class="contact-label">Confidentiality</div>
-            <div class="contact-value">All enquiries are treated with the strictest discretion</div>
+            <div class="contact-value">All enquiries treated with the strictest discretion</div>
           </div>
         </div>
       </div>
@@ -337,5 +418,22 @@
     <div class="footer-domain">ebersbacher.co.uk</div>
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
