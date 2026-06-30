@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Ebersbacher Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:#0D1B2A; --navy-mid:#162336; --gold:#C9A84C;
+      --gold-light:#E8C97A; --cream:#FAF8F4; --white:#FFFFFF;
+      --grey:#6B7280; --border:#D4C5A0;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--navy);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(13,27,42,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);}
+    .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;object-fit:contain;}
+    .nav-brand-text .name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:0.05em;line-height:1;}
+    .nav-brand-text .sub{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+    .nav-links{display:flex;align-items:center;gap:36px;}
+    .nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--gold-light);}
+
+    /* PAGE HERO */
+    .page-hero{padding-top:72px;background:var(--navy);position:relative;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.2;}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,27,42,0.5),var(--navy));}
+    .page-hero-content{position:relative;z-index:2;padding:80px 60px 70px;max-width:800px;}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+    .eyebrow-line{width:32px;height:1px;background:var(--gold);}
+    .eyebrow span{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px;}
+    .page-title em{font-style:italic;color:var(--gold-light);}
+    .page-sub{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:580px;}
+    .gold-stripe{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));position:relative;z-index:2;}
+
+    /* SERVICES DETAIL */
+    .services-detail{padding:100px 60px;background:#fff;}
+    .services-detail-inner{max-width:1200px;margin:0 auto;}
+
+    .service-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:72px;
+      align-items:center;padding:70px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .service-row:last-child{border-bottom:none;}
+    .service-row.reverse{direction:rtl;}
+    .service-row.reverse > *{direction:ltr;}
+
+    .service-detail-image{aspect-ratio:4/3;overflow:hidden;position:relative;}
+    .service-detail-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+    .service-detail-image:hover img{transform:scale(1.04);}
+    .service-detail-tag{
+      position:absolute;top:20px;left:20px;
+      background:var(--gold);color:var(--navy);
+      font-size:8px;letter-spacing:0.2em;text-transform:uppercase;
+      font-weight:700;padding:5px 12px;
+    }
+
+    .service-detail-content{}
+    .service-detail-num{
+      font-family:'Cormorant Garamond',serif;
+      font-size:56px;font-weight:300;color:var(--border);
+      line-height:1;margin-bottom:4px;
+    }
+    .service-detail-name{
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px;font-weight:600;color:var(--navy);
+      line-height:1.15;margin-bottom:16px;
+    }
+    .service-detail-body{font-size:13px;line-height:1.9;color:var(--grey);margin-bottom:20px;}
+    .service-bullets{list-style:none;margin-bottom:24px;}
+    .service-bullets li{
+      font-size:12.5px;color:var(--grey);padding:7px 0;
+      border-bottom:1px solid var(--border);
+      display:flex;align-items:center;gap:10px;
+    }
+    .service-bullets li::before{content:'';width:5px;height:5px;background:var(--gold);flex-shrink:0;}
+    .btn-primary{background:var(--gold);color:var(--navy);padding:13px 28px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;}
+    .btn-primary:hover{background:var(--gold-light);}
+
+    /* PROCESS */
+    .process{background:var(--navy);padding:100px 60px;}
+    .process-inner{max-width:1100px;margin:0 auto;}
+    .process-header{text-align:center;margin-bottom:64px;}
+    .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+    .section-heading.light{color:#fff;}
+    .section-sub{font-size:13.5px;line-height:1.8;color:var(--grey);}
+    .section-sub.light{color:rgba(255,255,255,0.55);}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .process-step{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.1);padding:36px 28px;}
+    .step-num{font-family:'Cormorant Garamond',serif;font-size:48px;color:rgba(201,168,76,0.25);font-weight:300;line-height:1;margin-bottom:16px;}
+    .step-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:10px;letter-spacing:0.02em;}
+    .step-desc{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.75;}
+
+    /* CTA */
+    .cta-band{background:var(--navy-mid);border-top:3px solid var(--gold);padding:80px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+    .cta-band-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,44px);color:#fff;font-weight:300;line-height:1.2;}
+    .cta-band-text h2 em{font-style:italic;color:var(--gold-light);}
+    .cta-band-text p{font-size:13px;color:rgba(255,255,255,0.5);margin-top:10px;}
+    .cta-band-actions{display:flex;gap:16px;flex-shrink:0;}
+    .btn-ghost{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
+    .btn-ghost:hover{color:var(--gold);border-color:var(--gold);}
+
+    footer{background:var(--navy);padding:60px 60px 30px;border-top:1px solid rgba(201,168,76,0.15);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-legal{font-size:10px;color:rgba(255,255,255,0.25);}
+    .footer-domain{font-size:10px;color:var(--gold);letter-spacing:0.1em;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_104316_f57ae800-113d-4dec-a950-214457f0f85b.png" alt="Ebersbacher Group"/>
+    <div class="nav-brand-text">
+      <div class="name">Ebersbacher Group</div>
+      <div class="sub">Wealth &amp; Investment Management</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Enquire</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113154_8de3c8df-98e8-4024-934e-a0c2e22882f8.png" alt="" id="services-hero-img"/>
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span>Our Services</span></div>
+    <h1 class="page-title">Bespoke services for<br/><em>extraordinary clients.</em></h1>
+    <p class="page-sub">From discreet portfolio management to complex cross-border investment structuring — everything we do is tailored, confidential, and built around you.</p>
+  </div>
+  <div class="gold-stripe"></div>
+</div>
+
+<section class="services-detail">
+  <div class="services-detail-inner">
+
+    <!-- Service 1 -->
+    <div class="service-row">
+      <div class="service-detail-image">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="service" id="svc1-img"/>
+        <div class="service-detail-tag">Portfolio Management</div>
+      </div>
+      <div class="service-detail-content">
+        <div class="service-detail-num">01</div>
+        <h3 class="service-detail-name">Discretionary Portfolio Management</h3>
+        <p class="service-detail-body">We manage your capital with the full weight of our expertise, acting on your behalf with agreed mandates across equities, fixed income, alternatives, and real assets. Every decision is made in your best interest — always.</p>
+        <ul class="service-bullets">
+          <li>Fully discretionary or advisory mandates</li>
+          <li>Multi-asset class allocation strategies</li>
+          <li>Risk-profiled portfolio construction</li>
+          <li>Quarterly performance and reporting</li>
+          <li>ESG-integrated options available</li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Request a Consultation</a>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-row reverse">
+      <div class="service-detail-image">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="service" id="svc2-img"/>
+        <div class="service-detail-tag">Strategic Investment</div>
+      </div>
+      <div class="service-detail-content">
+        <div class="service-detail-num">02</div>
+        <h3 class="service-detail-name">Strategic Investment Advisory</h3>
+        <p class="service-detail-body">We identify, evaluate, and structure direct investment opportunities across private equity, real estate, impact ventures, and cross-border acquisitions — providing our clients with access to deals not available through conventional channels.</p>
+        <ul class="service-bullets">
+          <li>Private equity and venture co-investment</li>
+          <li>Real estate investment structuring</li>
+          <li>Cross-border acquisition facilitation</li>
+          <li>Letter of intent and term sheet advisory</li>
+          <li>Deal sourcing and due diligence support</li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Discuss an Opportunity</a>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-row">
+      <div class="service-detail-image">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="service" id="svc3-img"/>
+        <div class="service-detail-tag">Family Office</div>
+      </div>
+      <div class="service-detail-content">
+        <div class="service-detail-num">03</div>
+        <h3 class="service-detail-name">Family Office &amp; Succession Planning</h3>
+        <p class="service-detail-body">For families with complex, multi-generational wealth, we serve as a trusted single point of coordination — managing relationships with legal, tax, and investment professionals to deliver a unified, coherent strategy.</p>
+        <ul class="service-bullets">
+          <li>Multi-generational wealth structuring</li>
+          <li>Estate and succession planning</li>
+          <li>Philanthropic advisory and foundation setup</li>
+          <li>Trustee and governance coordination</li>
+          <li>International tax and residency planning</li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Speak with an Advisor</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="eyebrow" style="justify-content:center;"><div class="eyebrow-line"></div><span>How We Work</span><div class="eyebrow-line"></div></div>
+      <h2 class="section-heading light">Our client onboarding process.</h2>
+      <p class="section-sub light" style="margin:0 auto;max-width:540px;text-align:center;">From the first conversation to a fully activated mandate, we make the process seamless, transparent, and entirely centred on you.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Initial Conversation</div>
+        <p class="step-desc">A confidential, no-obligation discussion with Mario Ebersbacher or a senior advisor to understand your objectives, timeline, and expectations.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Bespoke Proposal</div>
+        <p class="step-desc">We prepare a tailored investment proposal and mandate structure aligned to your specific financial goals and risk appetite.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Agreement &amp; Onboarding</div>
+        <p class="step-desc">Legal documentation is completed efficiently. We handle all compliance requirements with full transparency throughout.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Active Management</div>
+        <p class="step-desc">Your mandate is activated. You receive regular reporting, direct access to your advisor, and proactive updates on every material development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-text">
+    <h2>Begin your<br/><em>private mandate today.</em></h2>
+    <p>Reach out for a confidential, obligation-free consultation.</p>
+  </div>
+  <div class="cta-band-actions">
+    <a href="contact.html" class="btn-primary">Contact Us</a>
+    <a href="about.html" class="btn-ghost">About the Team →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2026 Ebersbacher Group Ltd. Registered in England &amp; Wales. All rights reserved. This website does not constitute financial advice.</div>
+    <div class="footer-domain">ebersbacher.co.uk</div>
+  </div>
+</footer>
+
+</body>
+</html>

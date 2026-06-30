@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Absichtserklärung — Nordic Equine Leadership Institute | Ebersbacher Group</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --navy: #0D1B2A;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --cream: #FAF8F4;
+      --mid-grey: #6B7280;
+      --border: #D4C5A0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8e4dc;
+      color: var(--navy);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #FFFFFF;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accent-top {
+      height: 6px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    }
+
+    .letterhead {
+      padding: 32px 48px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .letterhead-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .letterhead-logo img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .letterhead-wordmark {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .letterhead-wordmark .company-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .letterhead-wordmark .company-sub {
+      font-size: 9.5px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .letterhead-contact {
+      text-align: right;
+      font-size: 9.5px;
+      line-height: 1.7;
+      color: var(--mid-grey);
+    }
+
+    .letterhead-contact strong {
+      color: var(--navy);
+      font-weight: 500;
+      font-size: 10px;
+    }
+
+    .doc-meta {
+      padding: 14px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-meta .ref {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+    }
+
+    .doc-meta .ref span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .doc-meta .date-block {
+      font-size: 9.5px;
+      color: var(--mid-grey);
+      text-align: right;
+    }
+
+    .body {
+      padding: 36px 48px 40px;
+    }
+
+    .doc-title-block {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .doc-title-block::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 12px auto 0;
+    }
+
+    .doc-title-block .pre-title {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .doc-title-block h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .doc-title-block .sub-title {
+      font-size: 11px;
+      color: var(--mid-grey);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .parties-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .party-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--navy);
+      padding: 14px 16px;
+      border-radius: 2px;
+    }
+
+    .party-card.recipient {
+      border-top-color: var(--gold);
+    }
+
+    .party-label {
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .party-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .party-detail {
+      font-size: 9.5px;
+      color: var(--mid-grey);
+      line-height: 1.6;
+    }
+
+    p.intro {
+      font-size: 11px;
+      line-height: 1.8;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 24px 0 10px;
+    }
+
+    .section-number {
+      width: 22px;
+      height: 22px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    p.body-text {
+      font-size: 10.5px;
+      line-height: 1.85;
+      color: #2C3340;
+      margin-bottom: 14px;
+    }
+
+    .financial-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 10px;
+    }
+
+    .financial-table thead tr {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .financial-table thead th {
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    .financial-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .financial-table tbody tr:nth-child(even) {
+      background: var(--cream);
+    }
+
+    .financial-table tbody td {
+      padding: 9px 12px;
+      color: var(--navy);
+      font-size: 10.5px;
+    }
+
+    .financial-table tbody td.amount {
+      font-weight: 600;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    .financial-table tfoot tr {
+      background: var(--gold);
+    }
+
+    .financial-table tfoot td {
+      padding: 10px 12px;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+
+    .financial-table tfoot td.amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .condition-box {
+      border: 1.5px solid var(--gold);
+      background: #FFFBF0;
+      padding: 16px 18px;
+      margin: 16px 0;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .condition-box::before {
+      content: 'AUFSCHIEBENDE BEDINGUNG';
+      display: block;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .condition-box p {
+      font-size: 10.5px;
+      line-height: 1.8;
+      color: var(--navy);
+    }
+
+    .condition-box strong {
+      color: var(--navy);
+    }
+
+    .disclaimer {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 12px 16px;
+      margin: 20px 0;
+      font-size: 9px;
+      line-height: 1.7;
+      color: var(--mid-grey);
+    }
+
+    .signature-section {
+      margin-top: 32px;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .sig-block {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--navy);
+      padding: 12px 14px 10px;
+    }
+
+    .sig-block.recipient-sig {
+      border-top-color: var(--gold);
+    }
+
+    .sig-micro-label {
+      font-size: 7.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .sig-image-area {
+      height: 56px;
+      display: flex;
+      align-items: flex-end;
+      background: #ffffff;
+    }
+
+    .sig-image-area img {
+      max-height: 52px;
+      max-width: 185px;
+      object-fit: contain;
+      object-position: left bottom;
+      mix-blend-mode: darken;
+      display: block;
+    }
+
+    .sig-blank-area {
+      height: 52px;
+    }
+
+    .sig-rule {
+      border: none;
+      border-bottom: 1px solid rgba(13,27,42,0.3);
+      margin: 4px 0 7px;
+    }
+
+    .sig-name {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .sig-title {
+      font-size: 9px;
+      color: var(--mid-grey);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    .sig-date-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 9px;
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+    }
+
+    .sig-date-label {
+      font-size: 8.5px;
+      color: var(--mid-grey);
+      white-space: nowrap;
+    }
+
+    .sig-date-line {
+      flex: 1;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .page-footer {
+      border-top: 1px solid var(--border);
+      padding: 14px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+    }
+
+    .footer-left {
+      font-size: 8.5px;
+      color: var(--mid-grey);
+      line-height: 1.5;
+    }
+
+    .footer-right {
+      font-size: 8.5px;
+      color: var(--mid-grey);
+      text-align: right;
+    }
+
+    .footer-gold-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+
+    .accent-bottom {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--navy) 100%);
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="accent-top"></div>
+
+  <!-- BRIEFKOPF -->
+  <div class="letterhead">
+    <div class="letterhead-logo">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_104316_f57ae800-113d-4dec-a950-214457f0f85b.png" alt="Ebersbacher Group" />
+      <div class="letterhead-wordmark">
+        <span class="company-name">Ebersbacher Group</span>
+        <span class="company-sub">Vermögens- &amp; Investmentmanagement</span>
+      </div>
+    </div>
+    <div class="letterhead-contact">
+      <strong>Mario Ebersbacher</strong><br/>
+      Geschäftsführer (CEO)<br/>
+      Ebersbacher Group Ltd.<br/>
+      Whittington Rd, Worcester, WR5 2RG<br/>
+      Vereinigtes Königreich<br/>
+      mario.ebersbacher@ebersbackergroup.com
+    </div>
+  </div>
+
+  <!-- DOKUMENT-METADATEN -->
+  <div class="doc-meta">
+    <div class="ref">
+      Referenz: <span>EBG-LOI-2026-0630</span>
+    </div>
+    <div class="date-block">
+      30. Juni 2026<br/>
+      <span style="font-size:8.5px;">Gültig für 15 Kalendertage ab Ausstellungsdatum</span>
+    </div>
+  </div>
+
+  <!-- INHALT -->
+  <div class="body">
+
+    <!-- TITEL -->
+    <div class="doc-title-block">
+      <h1>Absichtserklärung</h1>
+      <div class="sub-title">Nordic Equine Leadership Institute — Strategisches Investitionsvorhaben</div>
+    </div>
+
+    <!-- PARTEIEN -->
+    <div class="parties-grid">
+      <div class="party-card">
+        <div class="party-label">Investor (Ausstellende Partei)</div>
+        <div class="party-name">Ebersbacher Group Ltd.</div>
+        <div class="party-detail">
+          Vertreten durch: Mario Ebersbacher, CEO<br/>
+          Rechtsordnung: Vereinigtes Königreich<br/>
+          Funktion: Vermögensmanagement &amp; Kapitalanlage<br/>
+          Handelnd im Auftrag eines privaten vermögenden Mandanten
+        </div>
+      </div>
+      <div class="party-card recipient">
+        <div class="party-label">Empfänger (Projektinitiatorinnen)</div>
+        <div class="party-name">Nordic Equine Leadership Institute</div>
+        <div class="party-detail">
+          Karin Seegardel &amp; Reto Peter (Mitgründer)<br/>
+          Projekt: Herningvej 68, Vistorp, 7540 Haderup<br/>
+          Dänemark<br/>
+          Gemäß Investitionsmemorandum (2026)
+        </div>
+      </div>
+    </div>
+
+    <!-- ANSCHREIBEN -->
+    <p class="intro">
+      Sehr geehrte Frau Seegardel, sehr geehrter Herr Peter,<br/><br/>
+      im Namen der Ebersbacher Group Ltd. und in unserer Funktion als Vermögensverwalter, die
+      im Auftrag eines privaten, vermögenden Mandanten tätig sind, haben wir Ihr
+      Investitionsmemorandum und Ihr Pitch Deck zum Nordic Equine Leadership Institute sowie das
+      Immobilienangebot für Herningvej 68, Vistorp, Haderup, Dänemark, eingehend geprüft.
+      Nach sorgfältiger Analyse des zugrunde liegenden Vermögenswertes, des Geschäftskonzepts
+      sowie der Marktchancen möchten wir hiermit das ausdrückliche und ernsthafte Interesse
+      unseres Mandanten bekunden, das erforderliche Kapital zur Realisierung Ihrer Vision
+      bereitzustellen.
+    </p>
+    <p class="intro">
+      Die vorliegende Absichtserklärung legt die wesentlichen Bedingungen und Konditionen dar,
+      unter denen unser Mandant bereit ist, das Vorhaben weiterzuverfolgen. Sie wird in gutem
+      Glauben ausgestellt und spiegelt eine ernsthafte und verbindliche Absicht wider —
+      vorbehaltlich der nachfolgend beschriebenen aufschiebenden Bedingung.
+    </p>
+
+    <!-- ABSCHNITT 1: INVESTITIONSVORHABEN -->
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Investitionsvorhaben &amp; Finanzielle Konditionen</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Unser Mandant beabsichtigt, einen Gesamtbetrag von <strong>€ 1.200.000 (Eine Million
+      Zweihunderttausend Euro)</strong> in das Nordic Equine Leadership Institute zu investieren.
+      Dies umfasst den Erwerb der Immobilie Herningvej 68 sowie den vollständigen operativen
+      Aufbau des Retreat- und Leadership-Zentrums gemäß den Angaben in Ihrem
+      Investitionsmemorandum.
+    </p>
+
+    <table class="financial-table">
+      <thead>
+        <tr>
+          <th>Tranche</th>
+          <th>Beschreibung</th>
+          <th>Fälligkeit</th>
+          <th class="amount">Betrag (EUR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tranche 1</strong></td>
+          <td>Erste Zahlung — Immobilienerwerb &amp; Projektmobilisierung</td>
+          <td>Nach Erfüllung der aufschiebenden Bedingung (siehe §2)</td>
+          <td class="amount">€ 730.400</td>
+        </tr>
+        <tr>
+          <td><strong>Tranche 2</strong></td>
+          <td>Restbetrag — Betriebskapital, Markenaufbau &amp; Launch</td>
+          <td>Innerhalb von 2 Monaten nach Auszahlung von Tranche 1</td>
+          <td class="amount">€ 469.600</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><strong>Gesamter Investitionsbetrag</strong></td>
+          <td class="amount">€ 1.200.000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p class="body-text">
+      Die erste Tranche in Höhe von <strong>€ 730.400</strong> ist für den Immobilienerwerb
+      (Kontantpris DKK 4.895.000 / ca. € 656.000), die damit verbundenen Rechts- und
+      Due-Diligence-Kosten sowie die anfängliche Projektmobilisierung vorgesehen. Der
+      Restbetrag von <strong>€ 469.600</strong> wird <strong>innerhalb von 2 Monaten nach
+      Auszahlung der ersten Tranche</strong> überwiesen und dient der Finanzierung von
+      Renovierungsarbeiten, Infrastruktur, Markenentwicklung, Marketing sowie des
+      Betriebskapitals für die ersten zwölf Betriebsmonate.
+    </p>
+
+    <!-- ABSCHNITT 2: AUFSCHIEBENDE BEDINGUNG -->
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Aufschiebende Bedingung — Nachweis Projektkonto</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Die Verpflichtung unseres Mandanten zur Auszahlung der ersten Tranche ist an die
+      Erfüllung der folgenden aufschiebenden Bedingung geknüpft, die <strong>unverzüglich
+      nach Erhalt dieser Absichtserklärung</strong> zu erfüllen ist:
+    </p>
+
+    <div class="condition-box">
+      <p>
+        Die Empfänger bestätigen das Bestehen eines <strong>designierten, gesicherten und
+        unmittelbar zugänglichen Projektkontos oder Verwahrinstruments</strong> — also des
+        Kontos, auf das sowohl die Eigenkapitalanteile der Empfänger als auch die
+        Investitionstranchen der Ebersbacher Group eingehen, verwahrt und eingesetzt werden —
+        mit einem verifizierten verfügbaren Guthaben von mindestens
+        <strong>€ 120.000 (Einhundertzwanzigtausend Euro)</strong>, was 10 % des
+        Gesamtinvestitionsbetrags entspricht.<br/><br/>
+        Dieses Konto kann die Form eines <strong>geschäftlichen Projektbankkontos</strong>
+        im Namen der Projektgesellschaft oder eines nominierten Gründers, eines
+        <strong>regulierten Anderkontos</strong> eines Rechtsanwalts oder Notars oder einer
+        <strong>gesicherten digitalen Zahlungseinrichtung bzw. eines Treuhandkontos</strong>
+        bei einem regulierten Finanzinstitut oder lizenzierten Zahlungsdienstleister annehmen —
+        sofern das Konto frei zugänglich ist, auf Euro (oder Äquivalent) lautet und
+        internationale Überweisungen ohne Einschränkung empfangen kann.<br/><br/>
+        Der Zweck dieser Anforderung ist klar: Dieses Konto ist das Ziel, auf das die
+        Ebersbacher Group die Investitionstranchen überweisen wird. Die Bestätigung seiner
+        Existenz, Sicherheit und Betriebsbereitschaft gewährleistet, dass Mittel unverzüglich
+        nach Abschluss des Immobilienerwerbs empfangen, sicher verwahrt und eingesetzt werden
+        können — ohne Verzögerung, ohne Intermediärrisiko und mit voller Transparenz für
+        alle Beteiligten.
+      </p>
+    </div>
+
+    <p class="body-text">
+      Nach zufriedenstellender Bestätigung des designierten Empfängerkontos und Verifizierung
+      des Mindestguthabens wird die Ebersbacher Group die Auszahlung von
+      <strong>Tranche 1 (€ 730.400)</strong> per internationalem Überweisungsauftrag auf
+      dieses Konto unverzüglich anweisen. Sollte die erforderliche Kontobestätigung nicht
+      fristgerecht eingehen, verliert diese Absichtserklärung ihre Gültigkeit, ohne dass
+      daraus Ansprüche einer der Parteien entstehen.
+    </p>
+
+    <!-- ABSCHNITT 3: BETEILIGUNGSSTRUKTUR -->
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Vorgeschlagene Beteiligungsstruktur &amp; Rendite</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Unser Mandant ist bereit, eine Beteiligungsstruktur gemäß den Vorschlägen in Ihrem
+      Memorandum in Betracht zu ziehen — einschließlich, aber nicht beschränkt auf eine
+      Eigenkapitalbeteiligung, einen strukturierten Rückfluss oder ein hybrides Modell aus
+      einem vorrangigen Darlehen und einer Minderheitsbeteiligung. Die endgültige Struktur
+      wird in einem rechtlich bindenden Investitionsvertrag festgelegt, der von beidseitig
+      beauftragten Rechtsanwälten vor der Auszahlung jeglicher Mittel ausgearbeitet wird.
+    </p>
+
+    <p class="body-text">
+      Als Ausgangspunkt für die Verhandlungen sieht unser Mandant eine Regelung im
+      Wesentlichen wie folgt vor: eine <strong>Minderheitsbeteiligung entsprechend dem
+      eingesetzten Kapital</strong>, einen Vorzugsrückfluss bis zur vollständigen
+      Kapitalrückführung sowie einen klar definierten Exit-Pfad (einschließlich einer
+      Management-Buy-back-Option zu einem vorab vereinbarten Bewertungsmindestpreis). Wir
+      sind offen für eine Beteiligungsstruktur, die sowohl operative Flexibilität für die
+      Gründer als auch Kapitalsicherheit für den Investor gewährleistet.
+    </p>
+
+    <!-- ABSCHNITT 4: ERWARTUNGEN & MEILENSTEINE -->
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">Erwartungen &amp; Leistungsmeilensteine</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Unser Mandant tritt in dieses Engagement mit hohen Erwartungen und aufrichtigem Vertrauen
+      in das Potenzial des Nordic Equine Leadership Institute. Als Gegenleistung für das
+      beschriebene Kapitalengagement erwarten wir folgende Bedingungen für die laufende
+      Partnerschaft:
+    </p>
+
+    <p class="body-text">
+      <strong>Betriebsaufnahme:</strong> Der formale Erwerb der Immobilie Herningvej 68 sollte
+      innerhalb von 60 Tagen nach Auszahlung der ersten Tranche abgeschlossen sein.
+      Renovierungs- und Vorbereitungsarbeiten sind unverzüglich danach einzuleiten, sodass
+      die erste gästereadige Retreat-Umgebung spätestens im ersten Quartal 2027 betriebsbereit
+      ist.<br/><br/>
+      <strong>Berichterstattung:</strong> Monatliche Fortschrittsberichte während der
+      Aufbauphase, übergehend in quartalsweise Finanz- und Betriebsberichte sobald das
+      Institut den Betrieb aufgenommen hat.<br/><br/>
+      <strong>Governance:</strong> Unser Mandant behält sich das Recht vor, einen Beobachter
+      in den Managementausschuss oder ein gleichwertiges Leitungsgremium zu entsenden — ohne
+      operatives Vetorecht, jedoch mit vollständigen Informationsrechten.<br/><br/>
+      <strong>Umsatzentwicklung:</strong> Wir nehmen die im Memorandum enthaltenen Prognosen
+      zur Kenntnis (EUR 278.400 allein aus Retreats im ersten Jahr) und erwarten vom
+      Managementteam, dass es von Beginn an aktiv auf diese Ziele hinarbeitet.
+    </p>
+
+    <!-- ABSCHNITT 5: NÄCHSTE SCHRITTE -->
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title">Nächste Schritte &amp; Vorgehensweise</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Um diese Absichtserklärung zu aktivieren und den Weg zu einer verbindlichen
+      Vereinbarung zu ebnen, schlagen wir folgende Vorgehensweise vor:
+    </p>
+
+    <p class="body-text">
+      <strong>Schritt 1:</strong> Die Empfänger bestätigen das designierte Empfängerkonto
+      und das verfügbare Guthaben (mindestens € 120.000) gemäß Abschnitt 2.<br/><br/>
+      <strong>Schritt 2:</strong> Beide Parteien unterzeichnen ein rechtlich bindendes
+      Term Sheet oder einen Heads-of-Terms-Vertrag, der von beidseitig beauftragten
+      Rechtsanwälten ausgearbeitet wird.<br/><br/>
+      <strong>Schritt 3 — Nach Unterzeichnung des Term Sheets:</strong> Die Ebersbacher Group
+      weist die Auszahlung von Tranche 1 (€ 730.400) an.<br/><br/>
+      <strong>Schritt 4 — Innerhalb von 2 Monaten nach Tranche 1:</strong> Auszahlung von
+      Tranche 2 (€ 469.600), vorbehaltlich zufriedenstellender Fortschrittsberichte und dem
+      Ausbleiben wesentlicher nachteiliger Entwicklungen.
+    </p>
+
+    <!-- HAFTUNGSAUSSCHLUSS -->
+    <div class="disclaimer">
+      <strong>Unverbindlichkeit:</strong> Diese Absichtserklärung wird als Ausdruck ernsthafter
+      und aufrichtiger Absicht ausgestellt und begründet keine rechtlich bindende
+      Investitionsverpflichtung. Eine bindende Verpflichtung entsteht für keine der Parteien,
+      bis ein vollständig unterzeichneter Investitionsvertrag oder Zeichnungsvertrag von
+      bevollmächtigten Vertretern beider Parteien unterzeichnet und von unabhängigen
+      Rechtsanwälten geprüft wurde. Diese Absichtserklärung steht unter dem Vorbehalt einer
+      zufriedenstellenden Durchführung rechtlicher, finanzieller und technischer
+      Due-Diligence-Prüfungen. Die Ebersbacher Group behält sich das Recht vor, dieses
+      Angebot jederzeit vor Abschluss eines verbindlichen Vertrags ohne Haftung
+      zurückzuziehen. Dieses Schreiben ist streng vertraulich und darf ohne vorherige
+      schriftliche Zustimmung der Ebersbacher Group Ltd. nicht an Dritte weitergegeben werden.
+    </div>
+
+    <!-- SCHLUSSBEMERKUNGEN -->
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title">Schlussbemerkungen</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="body-text">
+      Wir glauben von ganzem Herzen an das, was Sie aufbauen. Das Nordic Equine Leadership
+      Institute adressiert einen echten und bislang unterversorgten Bedarf in der europäischen
+      Führungskräfteentwicklung. Die Kombination aus erstklassiger Immobilie, einer
+      differenzierten Programmstrategie und einer skalierbaren Markenarchitektur bietet eine
+      überzeugende Investitionsgrundlage. Unser Mandant ist entschlossen, ein konstruktiver,
+      langfristiger Partner zu sein — und nicht lediglich ein Kapitalbereitsteller.
+    </p>
+
+    <p class="body-text">
+      Wir freuen uns auf Ihre baldige Rückmeldung und darauf, gemeinsam mit Ihnen Herningvej 68
+      in etwas wirklich Außergewöhnliches zu verwandeln. Bitte zögern Sie nicht, mich
+      direkt zu kontaktieren, sollten Sie Fragen zum Inhalt dieses Schreibens haben.
+    </p>
+
+    <p class="body-text" style="font-style: italic; color: var(--mid-grey); margin-top: 4px;">
+      Mit freundlichen Grüßen und vollem Vertrauen in Ihre Vision,
+    </p>
+
+    <!-- UNTERSCHRIFTENBLOCK -->
+    <div class="signature-section">
+      <div class="signature-grid">
+
+        <!-- INVESTOR -->
+        <div class="sig-block">
+          <div class="sig-micro-label">Unterzeichnet — Investierende Partei</div>
+          <div class="sig-image-area">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_111706_b8c8b8a7-e46e-4d4d-87a6-2ec767c2b2af.png" alt="Unterschrift Mario Ebersbacher" />
+          </div>
+          <div class="sig-rule"></div>
+          <div class="sig-name">Mario Ebersbacher</div>
+          <div class="sig-title">Geschäftsführer (CEO)<br/>Ebersbacher Group Ltd., Vereinigtes Königreich</div>
+          <div class="sig-date-row">
+            <span class="sig-date-label">Datum:</span>
+            <div class="sig-date-line"></div>
+          </div>
+        </div>
+
+        <!-- EMPFÄNGER -->
+        <div class="sig-block recipient-sig">
+          <div class="sig-micro-label">Gegenzeichnung — Empfangende Partei</div>
+          <div class="sig-blank-area"></div>
+          <div class="sig-rule"></div>
+          <div class="sig-name">Karin Seegardel / Reto Peter</div>
+          <div class="sig-title">Mitgründer<br/>Nordic Equine Leadership Institute, Dänemark</div>
+          <div class="sig-date-row">
+            <span class="sig-date-label">Datum:</span>
+            <div class="sig-date-line"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end .body -->
+
+  <!-- FUSSZEILE -->
+  <div class="page-footer">
+    <div class="footer-left">
+      Ebersbacher Group Ltd. — Vereinigtes Königreich
+      <span class="footer-gold-dot"></span>
+      Vermögens- &amp; Investmentmanagement
+      <span class="footer-gold-dot"></span>
+      Streng Vertraulich
+    </div>
+    <div class="footer-right">
+      Ref: EBG-LOI-2026-0630
+      <br/>Seite 1 von 1
+    </div>
+  </div>
+
+  <div class="accent-bottom"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Template — Ebersbacher Group</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #EDEAE4;
+      padding: 30px 20px;
+    }
+
+    .email-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── TOP CHROME ── */
+    .email-chrome {
+      background: #fff;
+      border-radius: 6px 6px 0 0;
+      padding: 14px 20px;
+      border-bottom: 1px solid #E5E0D6;
+      font-size: 11px;
+      font-family: Arial, sans-serif;
+      color: #888;
+    }
+
+    .email-chrome strong { color: #333; }
+
+    .chrome-row {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+
+    .chrome-label {
+      min-width: 40px;
+      font-size: 10.5px;
+      color: #aaa;
+    }
+
+    /* ── HEADER BAND ── */
+    .header-band {
+      background: #0D1B2A;
+      padding: 0;
+    }
+
+    .header-inner {
+      padding: 28px 36px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    .brand-text .company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .brand-text .sub {
+      font-size: 8.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-top: 3px;
+    }
+
+    .header-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      text-align: right;
+      max-width: 200px;
+      line-height: 1.4;
+    }
+
+    .gold-stripe {
+      height: 3px;
+      background: linear-gradient(90deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+    }
+
+    /* ── SUBJECT BAND ── */
+    .subject-band {
+      background: #FAF8F4;
+      border-left: 4px solid #C9A84C;
+      padding: 14px 36px;
+      border-bottom: 1px solid #D4C5A0;
+    }
+
+    .subject-label {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .subject-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #0D1B2A;
+      line-height: 1.2;
+    }
+
+    /* ── BODY ── */
+    .email-body {
+      background: #ffffff;
+      padding: 32px 36px 28px;
+    }
+
+    .salutation {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #0D1B2A;
+      margin-bottom: 20px;
+    }
+
+    .para {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #2C3340;
+      margin-bottom: 18px;
+    }
+
+    .para strong {
+      color: #0D1B2A;
+      font-weight: 600;
+    }
+
+    /* Key terms highlight box */
+    .highlight-box {
+      background: #FAF8F4;
+      border: 1px solid #D4C5A0;
+      border-top: 3px solid #0D1B2A;
+      padding: 18px 20px;
+      margin: 22px 0;
+      border-radius: 2px;
+    }
+
+    .highlight-box .hl-title {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hl-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #E8DFC8;
+      font-size: 12px;
+    }
+
+    .hl-row:last-child { border-bottom: none; }
+
+    .hl-row .label { color: #6B7280; }
+    .hl-row .value {
+      font-weight: 600;
+      color: #0D1B2A;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+    }
+
+    .hl-row .value.gold { color: #C9A84C; }
+
+    /* CTA / action required block */
+    .action-block {
+      background: #0D1B2A;
+      color: #fff;
+      padding: 20px 22px;
+      margin: 24px 0;
+      border-radius: 2px;
+    }
+
+    .action-block .action-pre {
+      font-size: 8.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 6px;
+    }
+
+    .action-block .action-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .action-block .action-body {
+      font-size: 12.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .action-block .action-body strong {
+      color: #E8C97A;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin: 20px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 12.5px;
+      color: #2C3340;
+      line-height: 1.6;
+    }
+
+    .tl-dot {
+      width: 20px;
+      height: 20px;
+      background: #C9A84C;
+      color: #0D1B2A;
+      font-size: 9px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Closing */
+    .closing {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #2C3340;
+      margin: 22px 0 18px;
+    }
+
+    /* Signature */
+    .sig {
+      border-top: 1px solid #D4C5A0;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .sig-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #0D1B2A;
+    }
+
+    .sig-role {
+      font-size: 11px;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+
+    .sig-company {
+      font-size: 11px;
+      color: #C9A84C;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    .sig-divider {
+      width: 40px;
+      height: 2px;
+      background: #C9A84C;
+      margin: 10px 0;
+    }
+
+    .sig-contact {
+      font-size: 10.5px;
+      color: #6B7280;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    .email-footer {
+      background: #0D1B2A;
+      padding: 20px 36px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    /* ── ATTACHMENT BLOCK ── */
+    .attachment-section {
+      margin: 24px 0 6px;
+      padding-top: 18px;
+      border-top: 1px solid #E5E0D6;
+    }
+
+    .attachment-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6B7280;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .attachment-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #FAF8F4;
+      border: 1px solid #D4C5A0;
+      border-left: 4px solid #0D1B2A;
+      border-radius: 3px;
+      padding: 12px 16px;
+      max-width: 420px;
+      cursor: default;
+    }
+
+    .attachment-icon {
+      width: 38px;
+      height: 46px;
+      background: #0D1B2A;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .attachment-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-left: 10px solid #C9A84C;
+      border-top: 10px solid transparent;
+    }
+
+    .attachment-icon .pdf-text {
+      font-size: 9px;
+      font-weight: 700;
+      color: #C9A84C;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    .attachment-icon .doc-lines {
+      width: 18px;
+    }
+
+    .attachment-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .attachment-filename {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0D1B2A;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .attachment-meta {
+      font-size: 10px;
+      color: #6B7280;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .attachment-badge {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #C9A84C;
+      padding: 2px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 12px;
+    }
+
+    .footer-company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-company span {
+      color: #C9A84C;
+    }
+
+    .footer-disclaimer {
+      font-size: 9px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      font-size: 9.5px;
+      color: #C9A84C;
+    }
+
+    .footer-link {
+      color: #C9A84C;
+      text-decoration: none;
+    }
+
+    /* ── PREVIEW ANNOTATION ── */
+    .preview-note {
+      text-align: center;
+      padding: 20px;
+      font-size: 11px;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <!-- Simulated email client header -->
+  <div class="email-chrome">
+    <div class="chrome-row">
+      <span class="chrome-label">From:</span>
+      <strong>Mario Ebersbacher</strong> &lt;mario.ebersbacher@ebersbackergroup.com&gt;
+    </div>
+    <div class="chrome-row">
+      <span class="chrome-label">To:</span>
+      <strong>Karin Seegardel &amp; Reto Peter</strong> — Nordic Equine Leadership Institute
+    </div>
+    <div class="chrome-row">
+      <span class="chrome-label">Subject:</span>
+      <strong>Letter of Intent — Strategic Investment | Nordic Equine Leadership Institute | Ref: EBG-LOI-2026-0630</strong>
+    </div>
+    <div class="chrome-row">
+      <span class="chrome-label">Date:</span>
+      30 June 2026 — <em>Strictly Private &amp; Confidential</em>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header-band">
+    <div class="header-inner">
+      <div class="header-brand">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_104316_f57ae800-113d-4dec-a950-214457f0f85b.png" alt="Ebersbacher Group" />
+        <div class="brand-text">
+          <div class="company">Ebersbacher Group</div>
+          <div class="sub">Wealth &amp; Investment Management</div>
+        </div>
+      </div>
+      <div class="header-tagline">
+        "Capital that moves<br/>with purpose."
+      </div>
+    </div>
+    <div class="gold-stripe"></div>
+  </div>
+
+  <!-- Subject Band -->
+  <div class="subject-band">
+    <div class="subject-label">Re: Investment Proposal</div>
+    <div class="subject-text">Nordic Equine Leadership Institute — Letter of Intent</div>
+  </div>
+
+  <!-- Body -->
+  <div class="email-body">
+
+    <p class="salutation">Dear Ms. Seegardel and Mr. Peter,</p>
+
+    <p class="para">
+      My name is <strong>Mario Ebersbacher</strong>, Chief Executive Officer of Ebersbacher Group Ltd., 
+      a UK-based wealth management firm. I write to you today in my capacity as advisor 
+      and representative of a private high-net-worth client who has reviewed your Investment 
+      Memorandum for the <strong>Nordic Equine Leadership Institute</strong> with considerable interest.
+    </p>
+
+    <p class="para">
+      Having assessed the underlying asset at Herningvej 68, Vistorp, the strength of your concept, 
+      the quality of your leadership team, and the compelling market opportunity in premium 
+      experiential leadership development, my client has authorised me to issue this formal expression 
+      of intent to invest.
+    </p>
+
+    <!-- Key Terms Box -->
+    <div class="highlight-box">
+      <div class="hl-title">Key Investment Terms at a Glance</div>
+      <div class="hl-row">
+        <span class="label">Total Investment Commitment</span>
+        <span class="value">€1,200,000</span>
+      </div>
+      <div class="hl-row">
+        <span class="label">Tranche 1 — Initial Disbursement</span>
+        <span class="value">€730,400</span>
+      </div>
+      <div class="hl-row">
+        <span class="label">Tranche 2 — Balance Payment</span>
+        <span class="value">€469,600</span>
+      </div>
+      <div class="hl-row">
+        <span class="label">Tranche 2 Payment Date</span>
+        <span class="value">Within 2 months of Tranche 1</span>
+      </div>
+      <div class="hl-row">
+        <span class="label">Designated Receiving Account (min. balance)</span>
+        <span class="value gold">€120,000 available</span>
+      </div>
+    </div>
+
+    <!-- Action Required -->
+    <div class="action-block">
+      <div class="action-pre">Action Required — Condition Precedent</div>
+      <div class="action-title">Designated Receiving Account — €120,000 Available Balance</div>
+      <div class="action-body">
+        Before we instruct the release of Tranche 1, we ask that you confirm the details of a
+        <strong>secure, designated project account or holding facility</strong> — this is the
+        account into which our client's investment tranches will be paid.<br/><br/>
+        The account should have a verified available balance of at least
+        <strong>€120,000 (10% of the total commitment)</strong> and be ready to receive
+        international wire transfers in EUR. It may be a <strong>corporate bank account</strong>,
+        a <strong>regulated solicitor or notary client account</strong>, or a
+        <strong>secured escrow or licensed digital payment account</strong> held with a
+        recognised financial institution. The key criteria are simple: the account must be
+        secure, accessible, and ready to receive funds immediately upon execution of the
+        Term Sheet.
+      </div>
+    </div>
+
+    <p class="para">
+      This is not due diligence scepticism — it is the practical step of confirming where the 
+      money will land. Once we have the account details and can see that the facility is live 
+      and funded, our client's instruction to release Tranche 1 goes out the same day. 
+      Everything is built around making this as fast and frictionless as possible for both sides.
+    </p>
+
+    <!-- Timeline -->
+    <p class="para" style="margin-bottom: 10px;"><strong>Our proposed timeline is straightforward:</strong></p>
+
+    <ul class="timeline">
+      <li>
+        <div class="tl-dot">1</div>
+        <div><strong>Step 1</strong> — You confirm your designated receiving account with a minimum available balance of €120,000. We verify within 48 hours of receipt.</div>
+      </li>
+      <li>
+        <div class="tl-dot">2</div>
+        <div><strong>Step 2</strong> — Both parties execute a binding Term Sheet / Heads of Terms via instructed legal counsel.</div>
+      </li>
+      <li>
+        <div class="tl-dot">3</div>
+        <div><strong>Upon execution</strong> — Ebersbacher Group instructs disbursement of <strong>Tranche 1: €730,400</strong>.</div>
+      </li>
+      <li>
+        <div class="tl-dot">4</div>
+        <div><strong>Within 2 months of Tranche 1</strong> — Disbursement of <strong>Tranche 2: €469,600</strong>. Total investment of €1.2M complete.</div>
+      </li>
+    </ul>
+
+    <p class="para">
+      Please find the full Letter of Intent attached below for your review and countersignature.
+      I would welcome the opportunity to speak with you directly to discuss any questions and to
+      move this forward at pace. We are genuinely excited by what you are building at Herningvej 68,
+      and our client is fully prepared to act quickly once the condition precedent is satisfied.
+    </p>
+
+    <!-- ATTACHMENT -->
+    <div class="attachment-section">
+      <div class="attachment-label">Attachment (1 file)</div>
+      <div class="attachment-card">
+        <div class="attachment-icon">
+          <svg class="doc-lines" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="18" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+            <rect x="0" y="4" width="14" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+            <rect x="0" y="8" width="18" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+          </svg>
+          <div class="pdf-text">PDF</div>
+        </div>
+        <div class="attachment-info">
+          <div class="attachment-filename">EBG-LOI-2026-0630 — Letter of Intent.pdf</div>
+          <div class="attachment-meta">
+            Ebersbacher Group Ltd. &nbsp;·&nbsp; Nordic Equine Leadership Institute<br/>
+            Ref: EBG-LOI-2026-0630 &nbsp;·&nbsp; 30 June 2026 &nbsp;·&nbsp; 1 page &nbsp;·&nbsp; PDF
+          </div>
+        </div>
+        <div class="attachment-badge">Confidential</div>
+      </div>
+    </div>
+
+    <p class="closing">
+      The Nordic Equine Leadership Institute is exactly the kind of project that combines 
+      real asset value, a scalable brand vision, and genuine human impact. We look forward 
+      to being your partner in making it a reality.
+    </p>
+
+    <!-- Signature -->
+    <div class="sig">
+      <div class="sig-name">Mario Ebersbacher</div>
+      <div class="sig-role">Chief Executive Officer</div>
+      <div class="sig-company">Ebersbacher Group Ltd. — United Kingdom</div>
+      <div class="sig-divider"></div>
+      <div class="sig-contact">
+        mario.ebersbacher@ebersbackergroup.com<br/>
+        Ebersbacher Group Ltd. | Wealth &amp; Investment Management | United Kingdom<br/>
+        Reference: EBG-LOI-2026-0630 | Strictly Private &amp; Confidential
+      </div>
+    </div>
+
+  </div><!-- end email-body -->
+
+  <!-- Footer -->
+  <div class="email-footer">
+    <div class="footer-top">
+      <div class="footer-company">Ebersbacher <span>Group</span></div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Unsubscribe</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">View in Browser</a>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      This communication and any attachments are strictly private and confidential and intended solely for the addressee(s). 
+      If you have received this message in error, please notify the sender immediately and permanently delete this message. 
+      Ebersbacher Group Ltd. is registered in England and Wales. This email does not constitute a legally binding offer. 
+      Any investment is subject to the execution of formal legal documentation and completion of satisfactory due diligence.
+    </div>
+  </div>
+
+  <div class="preview-note">
+    — Email Template | Ebersbacher Group | EBG-LOI-2026-0630 —
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & About | Ebersbacher Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#0D1B2A;--navy-mid:#162336;--gold:#C9A84C;--gold-light:#E8C97A;--cream:#FAF8F4;--white:#FFFFFF;--grey:#6B7280;--border:#D4C5A0;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--navy);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(13,27,42,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);}
+    .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;object-fit:contain;}
+    .nav-brand-text .name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:0.05em;line-height:1;}
+    .nav-brand-text .sub{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+    .nav-links{display:flex;align-items:center;gap:36px;}
+    .nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--gold-light);}
+
+    /* PAGE HERO */
+    .page-hero{padding-top:72px;background:var(--navy);position:relative;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.25;}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,27,42,0.4),var(--navy));}
+    .page-hero-content{position:relative;z-index:2;padding:80px 60px 70px;max-width:800px;}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+    .eyebrow-line{width:32px;height:1px;background:var(--gold);}
+    .eyebrow span{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px;}
+    .page-title em{font-style:italic;color:var(--gold-light);}
+    .page-sub{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:580px;}
+    .gold-stripe{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));position:relative;z-index:2;}
+
+    /* ABOUT SECTION */
+    .about{padding:100px 60px;background:#fff;}
+    .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+    .about-image-col{position:relative;}
+    .about-portrait{width:100%;aspect-ratio:3/4;object-fit:cover;}
+    .about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--navy);padding:22px 24px;min-width:180px;}
+    .about-badge-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:600;}
+    .about-badge-title{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:4px;}
+    .about-text{}
+    .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:20px;}
+    .about-body{font-size:13.5px;line-height:1.9;color:var(--grey);margin-bottom:16px;}
+    .about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:18px;margin:28px 0;line-height:1.5;}
+    .credentials{display:flex;flex-direction:column;gap:0;margin-top:24px;border-top:1px solid var(--border);padding-top:20px;}
+    .credential{display:flex;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+    .credential:last-child{border-bottom:none;}
+    .cred-dot{width:6px;height:6px;background:var(--gold);flex-shrink:0;}
+    .cred-text{font-size:12.5px;color:var(--grey);}
+
+    /* LOCATION */
+    .location{padding:0;position:relative;height:420px;overflow:hidden;}
+    .location img{width:100%;height:100%;object-fit:cover;}
+    .location-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,27,42,0.85) 40%,rgba(13,27,42,0.2) 100%);}
+    .location-content{position:absolute;top:50%;left:60px;transform:translateY(-50%);max-width:460px;}
+    .location-content h3{font-family:'Cormorant Garamond',serif;font-size:36px;color:#fff;font-weight:300;margin-bottom:10px;}
+    .location-content h3 em{font-style:italic;color:var(--gold-light);}
+    .location-content p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;}
+    .location-address{margin-top:20px;display:flex;flex-direction:column;gap:5px;}
+    .location-address span{font-size:12px;color:rgba(255,255,255,0.5);}
+    .location-address strong{color:rgba(255,255,255,0.85);}
+
+    /* CONTACT */
+    .contact-section{padding:100px 60px;background:var(--cream);}
+    .contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+    .contact-info h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--navy);margin-bottom:16px;}
+    .contact-info p{font-size:13.5px;color:var(--grey);line-height:1.85;margin-bottom:32px;}
+    .contact-detail{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
+    .contact-row{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);}
+    .contact-row:first-child{border-top:1px solid var(--border);}
+    .contact-icon{width:36px;height:36px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .contact-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.5;}
+    .contact-label{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+    .contact-value{font-size:13px;color:var(--navy);font-weight:500;}
+    .contact-value a{color:var(--navy);text-decoration:none;}
+    .contact-value a:hover{color:var(--gold);}
+
+    /* FORM */
+    .contact-form-wrap{}
+    .contact-form-wrap h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);margin-bottom:24px;font-weight:400;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+    .form-group label{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);font-weight:600;}
+    .form-group input,.form-group select,.form-group textarea{
+      background:#fff;border:1px solid var(--border);
+      padding:12px 14px;font-size:13px;color:var(--navy);
+      font-family:'Inter',sans-serif;outline:none;
+      transition:border-color 0.2s;
+    }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+    .form-group textarea{resize:vertical;min-height:110px;}
+    .form-group select{appearance:none;cursor:pointer;}
+    .form-disclaimer{font-size:10.5px;color:var(--grey);line-height:1.65;margin-bottom:20px;}
+    .btn-primary{background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif;display:inline-block;text-decoration:none;}
+    .btn-primary:hover{background:var(--gold-light);}
+
+    footer{background:var(--navy);padding:60px 60px 30px;border-top:1px solid rgba(201,168,76,0.15);}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+    .footer-brand img{width:44px;height:44px;object-fit:contain;margin-bottom:12px;}
+    .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;letter-spacing:0.05em;}
+    .footer-brand-sub{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;margin-bottom:16px;}
+    .footer-brand-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.75;max-width:280px;}
+    .footer-col h5{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    .footer-col a,.footer-col p{display:block;font-size:12px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:10px;line-height:1.6;transition:color 0.2s;}
+    .footer-col a:hover{color:#fff;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-legal{font-size:10px;color:rgba(255,255,255,0.25);}
+    .footer-domain{font-size:10px;color:var(--gold);letter-spacing:0.1em;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_104316_f57ae800-113d-4dec-a950-214457f0f85b.png" alt="Ebersbacher Group"/>
+    <div class="nav-brand-text">
+      <div class="name">Ebersbacher Group</div>
+      <div class="sub">Wealth &amp; Investment Management</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html" class="nav-cta">Enquire</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img id="contact-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span>About &amp; Contact</span></div>
+    <h1 class="page-title">The people behind<br/><em>your wealth strategy.</em></h1>
+    <p class="page-sub">Get to know the leadership of Ebersbacher Group and reach out to begin a private, obligation-free conversation.</p>
+  </div>
+  <div class="gold-stripe"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-image-col">
+      <img class="about-portrait" id="about-portrait"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113154_8de3c8df-98e8-4024-934e-a0c2e22882f8.png"
+        alt="Mario Ebersbacher — CEO, Ebersbacher Group"/>
+      <div class="about-badge">
+        <div class="about-badge-name">Mario Ebersbacher</div>
+        <div class="about-badge-title">Chief Executive Officer</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span>Leadership</span></div>
+      <h2 class="section-heading">Mario Ebersbacher,<br/>Chief Executive Officer</h2>
+      <p class="about-body">
+        Mario Ebersbacher founded Ebersbacher Group with a singular conviction: that private wealth clients deserve the same level of rigour, intelligence, and discretion once reserved only for the largest institutional investors. Over 18 years in private wealth and investment management, he has built a firm that reflects that belief in every client relationship.
+      </p>
+      <p class="about-body">
+        Operating from Worcester in the heart of England, Mario and his team work with high-net-worth individuals, family offices, and institutional partners across twelve European markets. His particular expertise lies in cross-border investment structuring, strategic capital deployment, and long-term portfolio advisory.
+      </p>
+      <blockquote class="about-quote">
+        "Every client is an individual, not a category. Our job is to understand what truly matters to you — and to build a strategy that honours that."
+      </blockquote>
+      <div class="credentials">
+        <div class="credential"><div class="cred-dot"></div><span class="cred-text">18+ years in private wealth &amp; investment management</span></div>
+        <div class="credential"><div class="cred-dot"></div><span class="cred-text">Cross-border investment structuring — 12 European markets</span></div>
+        <div class="credential"><div class="cred-dot"></div><span class="cred-text">Strategic capital advisory for HNWI and family offices</span></div>
+        <div class="credential"><div class="cred-dot"></div><span class="cred-text">Registered in England &amp; Wales | Ebersbacher Group Ltd.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<div class="location">
+  <img id="location-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
+  <div class="location-overlay"></div>
+  <div class="location-content">
+    <h3>Based in <em>Worcester,</em><br/>serving Europe.</h3>
+    <p>Our principal office is located in Worcester, United Kingdom — a historic city at the heart of England, well-connected to London and the wider European market.</p>
+    <div class="location-address">
+      <span><strong>Ebersbacher Group Ltd.</strong></span>
+      <span>Whittington Road, Worcester</span>
+      <span>WR5 2RG, United Kingdom</span>
+      <span style="margin-top:6px;color:var(--gold);">ebersbacher.co.uk</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span>Get in Touch</span></div>
+      <h2>Begin a private<br/>conversation.</h2>
+      <p>Whether you have a specific investment opportunity in mind, are seeking a new wealth management relationship, or simply want to explore what Ebersbacher Group can offer — we welcome your enquiry.</p>
+      <div class="contact-detail">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Office Address</div>
+            <div class="contact-value">Whittington Road, Worcester, WR5 2RG<br/>United Kingdom</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Direct Email</div>
+            <div class="contact-value"><a href="mailto:mario.ebersbacher@ebersbacher.co.uk">mario.ebersbacher@ebersbacher.co.uk</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Response Time</div>
+            <div class="contact-value">All enquiries responded to within 24 hours</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Confidentiality</div>
+            <div class="contact-value">All enquiries are treated with the strictest discretion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h3>Send us a confidential enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First name"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>Enquiry Type</label>
+        <select>
+          <option>Portfolio Management</option>
+          <option>Strategic Investment Advisory</option>
+          <option>Family Office Services</option>
+          <option>Investment Opportunity</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Please describe your enquiry in brief. All information shared is treated as strictly confidential."></textarea>
+      </div>
+      <p class="form-disclaimer">By submitting this form you agree to be contacted by Ebersbacher Group Ltd. in response to your enquiry. We will never share your information with third parties. See our Privacy Policy at ebersbacher.co.uk/privacy.</p>
+      <button class="btn-primary" type="submit">Send Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_104316_f57ae800-113d-4dec-a950-214457f0f85b.png" alt="Ebersbacher Group"/>
+      <div class="footer-brand-name">Ebersbacher Group</div>
+      <div class="footer-brand-sub">Wealth &amp; Investment Management</div>
+      <p class="footer-brand-desc">A boutique private wealth management firm serving high-net-worth clients across Europe from Worcester, United Kingdom.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="about.html">About Us</a>
+      <a href="contact.html#team">Leadership</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="services.html">Portfolio Management</a>
+      <a href="services.html">Strategic Investment</a>
+      <a href="services.html">Family Office</a>
+      <a href="services.html">Advisory</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p>Whittington Rd<br/>Worcester, WR5 2RG<br/>United Kingdom</p>
+      <a href="mailto:mario.ebersbacher@ebersbacher.co.uk">mario.ebersbacher@<br/>ebersbacher.co.uk</a>
+      <a href="https://ebersbacher.co.uk">ebersbacher.co.uk</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2026 Ebersbacher Group Ltd. Registered in England &amp; Wales. All rights reserved. This website does not constitute financial advice.</div>
+    <div class="footer-domain">ebersbacher.co.uk</div>
+  </div>
+</footer>
+</body>
+</html>
