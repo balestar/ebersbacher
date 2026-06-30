@@ -5,22 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Letter of Authorization — Ebersbacher Group Ltd.</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
-    :root {
-      --navy: #1D3571;
-      --gold: #F2A818;
-      --gold-light: #F7C455;
-      --cream: #FAF8F4;
-      --grey: #6B7280;
-      --border: #D4C5A0;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
 
     * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #e8e4dc;
-      color: #1a1a2e;
+      background: #ccc;
+      font-family: 'Inter', 'Arial', sans-serif;
+      color: #111;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -30,135 +22,190 @@
       min-height: 297mm;
       margin: 24px auto;
       background: #fff;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.25);
       position: relative;
     }
 
-    .top-stripe {
-      height: 6px;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    /* TOP RULE */
+    .top-rule {
+      height: 7px;
+      background: #1D3571;
+      position: relative;
+    }
+    .top-rule::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: #F2A818;
+      margin-top: 1px;
     }
 
     /* LETTERHEAD */
     .letterhead {
-      padding: 28px 48px 20px;
+      padding: 22px 40px 18px;
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+      border-bottom: 1px solid #bbb;
     }
-    .letterhead-brand { display: flex; align-items: center; gap: 14px; }
-    .letterhead-brand img { width: 62px; height: 62px; object-fit: contain; border-radius: 3px; }
-    .letterhead-wordmark .company-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px; font-weight: 600;
-      color: var(--navy); letter-spacing: 0.05em; line-height: 1;
+    .lh-brand { display: flex; align-items: center; gap: 12px; }
+    .lh-brand img { width: 58px; height: 58px; object-fit: contain; }
+    .lh-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 18px; font-weight: 600; color: #1D3571;
+      letter-spacing: 0.04em; line-height: 1.1;
     }
-    .letterhead-wordmark .company-tag {
-      font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-top: 4px;
+    .lh-tagline {
+      font-size: 8.5px; color: #888; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-top: 4px;
     }
-    .letterhead-address {
-      text-align: right;
-      font-size: 10px; color: var(--grey); line-height: 1.7;
+    .lh-right {
+      font-size: 10px; color: #555; text-align: right; line-height: 1.8;
     }
-    .letterhead-address a { color: var(--navy); text-decoration: none; }
+    .lh-right strong { color: #1D3571; }
 
-    /* META BAR */
-    .meta-bar {
-      background: #f8f7f4;
-      border-bottom: 2px solid var(--gold);
-      padding: 9px 48px;
-      display: flex; gap: 40px;
+    /* DOCUMENT META TABLE */
+    .doc-meta {
+      padding: 14px 40px;
+      background: #f7f7f7;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      gap: 0;
     }
-    .meta-item { font-size: 10px; color: var(--grey); }
-    .meta-item strong { color: var(--navy); }
+    .doc-meta-item {
+      flex: 1;
+      border-right: 1px solid #ddd;
+      padding: 0 16px;
+    }
+    .doc-meta-item:first-child { padding-left: 0; }
+    .doc-meta-item:last-child { border-right: none; }
+    .dmi-label { font-size: 8px; color: #999; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px; }
+    .dmi-value { font-size: 11.5px; color: #1D3571; font-weight: 600; }
+    .dmi-value.mono { font-family: 'Source Code Pro', monospace; font-size: 11px; }
 
     /* BODY */
-    .doc-body { padding: 36px 48px; }
+    .doc-body { padding: 28px 40px; }
 
-    .doc-tag {
-      font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700; margin-bottom: 12px;
+    .doc-type-label {
+      font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #999; margin-bottom: 8px;
     }
     .doc-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 600; color: var(--navy);
-      line-height: 1.2; margin-bottom: 28px;
-      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+      font-family: 'Source Serif 4', serif;
+      font-size: 22px; font-weight: 600; color: #1D3571;
+      line-height: 1.25; margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 2px solid #1D3571;
     }
 
-    .salutation {
-      font-size: 13px; color: var(--navy);
-      margin-bottom: 20px; font-weight: 500;
+    /* ADDRESS BLOCK */
+    .address-block {
+      display: flex; gap: 40px; margin-bottom: 22px;
+    }
+    .addr-col {}
+    .addr-label { font-size: 8.5px; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+    .addr-text { font-size: 11.5px; color: #222; line-height: 1.7; }
+
+    /* DATE LINE */
+    .date-line { font-size: 12px; color: #333; margin-bottom: 20px; }
+
+    /* RE LINE */
+    .re-line {
+      background: #f0f4fb;
+      border-left: 4px solid #1D3571;
+      padding: 8px 14px;
+      margin-bottom: 20px;
+      font-size: 11.5px; color: #1D3571; font-weight: 600;
     }
 
-    .body-text {
-      font-size: 12.5px; line-height: 1.9; color: #3a3a5c;
-      margin-bottom: 16px;
-    }
+    .salutation { font-size: 13px; color: #111; margin-bottom: 18px; }
 
-    /* HIGHLIGHT BOX */
-    .authority-box {
-      border-left: 4px solid var(--gold);
-      background: #faf8f2;
-      padding: 18px 22px;
-      margin: 24px 0;
-    }
-    .authority-box-title {
-      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700; margin-bottom: 10px;
-    }
-    .authority-item {
-      display: flex; gap: 12px; align-items: flex-start;
-      padding: 7px 0; border-bottom: 1px solid #ede8dc; font-size: 12px;
-    }
-    .authority-item:last-child { border-bottom: none; }
-    .authority-dot { width: 6px; height: 6px; background: var(--gold); flex-shrink: 0; margin-top: 5px; }
-    .authority-item-text { color: #3a3a5c; line-height: 1.6; }
+    .body-para { font-size: 12px; line-height: 1.9; color: #333; margin-bottom: 14px; }
 
-    /* CLOSING */
-    .closing { margin-top: 32px; }
-    .closing-text { font-size: 12.5px; color: #3a3a5c; line-height: 1.9; margin-bottom: 24px; }
+    /* AUTHORITY LIST */
+    .authority-list { margin: 18px 0; padding-left: 0; list-style: none; }
+    .authority-list li {
+      display: flex;
+      gap: 12px;
+      padding: 9px 14px;
+      border-bottom: 1px solid #efefef;
+      font-size: 11.5px;
+      color: #333;
+      line-height: 1.65;
+      align-items: flex-start;
+    }
+    .authority-list li:first-child { background: #f9f9f9; }
+    .authority-list li::before {
+      content: counter(li-counter, lower-roman) '.';
+      counter-increment: li-counter;
+      font-size: 10px; color: #1D3571; font-weight: 700;
+      min-width: 20px; margin-top: 2px; flex-shrink: 0;
+    }
+    .authority-list { counter-reset: li-counter; }
 
     /* SIGNATURE BLOCK */
-    .sig-block {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+    .sig-section {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid #ddd;
     }
-    .sig-left {}
-    .sig-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px; font-style: italic; color: var(--navy); margin-bottom: 6px;
-    }
-    .sig-line { width: 200px; height: 1px; background: var(--navy); margin: 8px 0 6px; }
-    .sig-title { font-size: 11px; color: var(--navy); font-weight: 600; }
-    .sig-company { font-size: 10px; color: var(--grey); margin-top: 2px; }
-    .sig-date { font-size: 10px; color: var(--grey); margin-top: 6px; }
+    .sig-closing { font-size: 12px; color: #333; margin-bottom: 24px; line-height: 1.8; }
 
-    .seal-right {
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 10px;
     }
-    .seal-right img { width: 96px; height: 96px; object-fit: contain; opacity: 0.85; }
-    .seal-label { font-size: 8.5px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase; }
+    .sig-box {}
+    .sig-label { font-size: 8.5px; color: #999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 32px; }
+    .sig-line { width: 200px; height: 1px; background: #1D3571; margin-bottom: 6px; }
+    .sig-name-text { font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #1D3571; }
+    .sig-role { font-size: 10.5px; color: #333; font-weight: 600; margin-top: 3px; }
+    .sig-co { font-size: 10px; color: #666; margin-top: 1px; }
+    .sig-date { font-size: 10px; color: #999; margin-top: 4px; }
+
+    /* SEAL ROW */
+    .seal-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+    }
+    .seal-img { width: 80px; height: 80px; object-fit: contain; opacity: 0.82; flex-shrink: 0; }
+    .seal-text { font-size: 10px; color: #888; line-height: 1.7; }
+    .seal-text strong { color: #1D3571; display: block; font-size: 11px; margin-bottom: 2px; }
+
+    /* NOTARY STUB */
+    .notary-stub {
+      margin-top: 20px;
+      border: 1px solid #bbb;
+      padding: 12px 16px;
+      background: #fafafa;
+    }
+    .notary-title { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.16em; color: #999; margin-bottom: 8px; font-weight: 700; }
+    .notary-body { font-size: 10px; color: #555; line-height: 1.7; }
 
     /* FOOTER */
-    .doc-footer {
-      margin: 0 48px 20px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between;
+    .page-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 8px 40px;
+      background: #f4f4f4;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .doc-footer-note { font-size: 8.5px; color: #bbb; line-height: 1.6; max-width: 360px; }
-    .doc-footer-ref { font-size: 8.5px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; }
+    .pf-left { font-size: 8.5px; color: #999; }
+    .pf-right { font-family: 'Source Code Pro', monospace; font-size: 9px; color: #1D3571; font-weight: 600; }
 
-    .bottom-stripe {
-      height: 4px;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    .bottom-rule {
+      height: 7px; background: #1D3571; position: relative;
+    }
+    .bottom-rule::before {
+      content: ''; display: block; height: 3px; background: #F2A818; margin-top: 0;
     }
 
     @media print {
@@ -169,107 +216,149 @@
 </head>
 <body>
 <div class="page">
-  <div class="top-stripe"></div>
+  <div class="top-rule"></div>
 
   <!-- LETTERHEAD -->
   <div class="letterhead">
-    <div class="letterhead-brand">
+    <div class="lh-brand">
       <img src="ebersbacher-website/images/logo.png" alt="Ebersbacher Group"/>
-      <div class="letterhead-wordmark">
-        <div class="company-name">Ebersbacher Group</div>
-        <div class="company-tag">Private Wealth &amp; Investment Management</div>
+      <div>
+        <div class="lh-name">Ebersbacher Group Ltd.</div>
+        <div class="lh-tagline">Private Wealth &amp; Investment Management</div>
       </div>
     </div>
-    <div class="letterhead-address">
-      Whittington Road, Worcester<br/>
-      WR5 2RG, United Kingdom<br/>
-      <a href="mailto:team@ebersbacher.co.uk">team@ebersbacher.co.uk</a><br/>
+    <div class="lh-right">
+      Whittington Road, Worcester, WR5 2RG<br/>
+      United Kingdom<br/>
+      <strong>team@ebersbacher.co.uk</strong><br/>
       ebersbacher.co.uk<br/>
       Co. No. 12847653
     </div>
   </div>
 
-  <!-- META BAR -->
-  <div class="meta-bar">
-    <div class="meta-item"><strong>Date:</strong> 30 June 2026</div>
-    <div class="meta-item"><strong>Reference:</strong> EBG-AUTH-2026-0630</div>
-    <div class="meta-item"><strong>Classification:</strong> Confidential</div>
+  <!-- DOC META -->
+  <div class="doc-meta">
+    <div class="doc-meta-item">
+      <div class="dmi-label">Date Issued</div>
+      <div class="dmi-value">30 June 2026</div>
+    </div>
+    <div class="doc-meta-item">
+      <div class="dmi-label">Reference</div>
+      <div class="dmi-value mono">EBG-AUTH-2026-0630</div>
+    </div>
+    <div class="doc-meta-item">
+      <div class="dmi-label">Classification</div>
+      <div class="dmi-value">Confidential</div>
+    </div>
+    <div class="doc-meta-item">
+      <div class="dmi-label">Validity</div>
+      <div class="dmi-value">Until Further Notice</div>
+    </div>
   </div>
 
   <!-- BODY -->
   <div class="doc-body">
-    <div class="doc-tag">Internal Corporate Authorization</div>
-    <h1 class="doc-title">Letter of Authorization &amp;<br/>Confirmation of Representation Authority</h1>
+    <div class="doc-type-label">Corporate Authorization Document</div>
+    <h1 class="doc-title">Letter of Authorization &amp; Confirmation<br/>of Representation Authority</h1>
+
+    <div class="address-block">
+      <div class="addr-col">
+        <div class="addr-label">Issued By</div>
+        <div class="addr-text">
+          <strong>Ebersbacher Group Ltd.</strong><br/>
+          Whittington Road, Worcester<br/>
+          WR5 2RG, United Kingdom<br/>
+          Company No. 12847653
+        </div>
+      </div>
+      <div class="addr-col">
+        <div class="addr-label">Addressed To</div>
+        <div class="addr-text">
+          All Parties Concerned<br/>
+          Nordic Equine Leadership Institute<br/>
+          Re: Investment Transaction<br/>
+          Reference: EBG-LOI-2026-0630
+        </div>
+      </div>
+    </div>
+
+    <div class="date-line">Worcester, 30 June 2026</div>
+
+    <div class="re-line">RE: Authorization of Mario Ebersbacher to Represent Ebersbacher Group Ltd. in All Matters Pertaining to Investment Transaction EBG-LOI-2026-0630</div>
 
     <p class="salutation">To Whom It May Concern,</p>
 
-    <p class="body-text">
-      This letter is issued by Ebersbacher Group Ltd. (Company No. 12847653), a private limited company incorporated under the laws of England and Wales with its registered office at Whittington Road, Worcester, WR5 2RG, United Kingdom, for the purpose of formally confirming the authority and representation rights of its Chief Executive Officer in connection with all commercial, financial, and contractual matters.
+    <p class="body-para">
+      This letter is issued by Ebersbacher Group Ltd., a private limited company incorporated under the laws of England and Wales (Company No. 12847653), with its registered office at Whittington Road, Worcester, WR5 2RG, United Kingdom, for the purpose of formally confirming the authority and representation rights of its Chief Executive Officer and Director.
     </p>
 
-    <p class="body-text">
-      The Board of Ebersbacher Group Ltd. hereby confirms and declares that <strong>Mario Ebersbacher</strong>, acting in his capacity as Chief Executive Officer and sole Director of the company, is fully and unconditionally authorized to undertake the following on behalf of Ebersbacher Group Ltd.:
+    <p class="body-para">
+      The company hereby confirms and declares that <strong>Mario Ebersbacher</strong>, acting in his capacity as Chief Executive Officer and sole Director of Ebersbacher Group Ltd., is fully and unconditionally authorised to act on behalf of the company in the following capacities:
     </p>
 
-    <div class="authority-box">
-      <div class="authority-box-title">Confirmed Scope of Authority</div>
-      <div class="authority-item">
-        <div class="authority-dot"></div>
-        <div class="authority-item-text">Execute and sign Letters of Intent, Term Sheets, Memoranda of Understanding, and binding investment agreements on behalf of the company and its clients</div>
-      </div>
-      <div class="authority-item">
-        <div class="authority-dot"></div>
-        <div class="authority-item-text">Represent Ebersbacher Group Ltd. and its investment clients in all negotiations, correspondence, and formal proceedings related to property acquisition, capital deployment, and strategic investment mandates</div>
-      </div>
-      <div class="authority-item">
-        <div class="authority-dot"></div>
-        <div class="authority-item-text">Engage legal counsel, notaries, solicitors, and third-party advisors in the name of the company for the purposes of due diligence, escrow arrangements, and transaction completion</div>
-      </div>
-      <div class="authority-item">
-        <div class="authority-dot"></div>
-        <div class="authority-item-text">Confirm and verify investor mandates, direct investment decisions, and authorize the movement of funds in accordance with client instruction and applicable financial regulations</div>
-      </div>
-      <div class="authority-item">
-        <div class="authority-dot"></div>
-        <div class="authority-item-text">Correspond with counterparties, government bodies, financial institutions, and professional service providers on all matters related to the company's business activities</div>
-      </div>
-    </div>
+    <ol class="authority-list">
+      <li>Execute and sign Letters of Intent, Term Sheets, Heads of Terms, Memoranda of Understanding, and binding investment agreements on behalf of the company and its private investor clients</li>
+      <li>Represent Ebersbacher Group Ltd. and its clients in all negotiations, correspondence, and formal proceedings relating to property acquisition, capital deployment, and strategic investment mandates</li>
+      <li>Engage legal counsel, notaries, solicitors, and third-party advisors in the name of the company for the purposes of due diligence, escrow arrangements, and transaction completion</li>
+      <li>Confirm and verify investor mandates, direct investment decisions, and authorise movement of funds in accordance with client instruction and applicable FCA regulations</li>
+      <li>Correspond with counterparties, government bodies, financial institutions, and professional service providers on all matters relating to the company's business</li>
+    </ol>
 
-    <div class="closing">
-      <p class="closing-text">
-        This authorization is granted without limitation and remains in full force and effect as of the date of this letter. Ebersbacher Group Ltd. accepts full legal responsibility for all actions undertaken by Mario Ebersbacher within the scope of authority described herein.
+    <p class="body-para">
+      This authorisation is granted without limitation as to territory or counterparty and remains in full force and effect as of the date hereof until expressly revoked in writing by the company. Ebersbacher Group Ltd. accepts full legal responsibility for all actions undertaken by Mario Ebersbacher within the scope of authority described herein.
+    </p>
+
+    <div class="sig-section">
+      <p class="sig-closing">
+        Any party receiving this letter may rely upon it as conclusive evidence of the authority of Mario Ebersbacher to bind and represent Ebersbacher Group Ltd.
       </p>
-      <p class="closing-text">
-        Any party receiving this letter may rely upon it as conclusive evidence of the authority of Mario Ebersbacher to bind and represent Ebersbacher Group Ltd. in the matters described above.
-      </p>
-    </div>
 
-    <!-- SIGNATURE -->
-    <div class="sig-block">
-      <div class="sig-left">
-        <div class="sig-name">Mario Ebersbacher</div>
-        <div class="sig-line"></div>
-        <div class="sig-title">Chief Executive Officer &amp; Director</div>
-        <div class="sig-company">Ebersbacher Group Ltd. — Co. No. 12847653</div>
-        <div class="sig-date">Worcester, 30 June 2026</div>
+      <div class="sig-grid">
+        <div class="sig-box">
+          <div class="sig-label">Authorised Signatory</div>
+          <div class="sig-line"></div>
+          <div class="sig-name-text">Mario Ebersbacher</div>
+          <div class="sig-role">Chief Executive Officer &amp; Director</div>
+          <div class="sig-co">Ebersbacher Group Ltd. | Co. No. 12847653</div>
+          <div class="sig-date">Worcester, United Kingdom — 30 June 2026</div>
+        </div>
+        <div class="sig-box">
+          <div class="sig-label">Company Secretary Attestation</div>
+          <div class="sig-line"></div>
+          <div class="sig-name-text">E. Hartmann</div>
+          <div class="sig-role">Head of Compliance &amp; Company Secretary</div>
+          <div class="sig-co">Ebersbacher Group Ltd.</div>
+          <div class="sig-date">Worcester, United Kingdom — 30 June 2026</div>
+        </div>
       </div>
-      <div class="seal-right">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
-        <div class="seal-label">Company Seal</div>
-      </div>
-    </div>
 
+      <div class="seal-row">
+        <img class="seal-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Company Seal"/>
+        <div class="seal-text">
+          <strong>Corporate Seal — Ebersbacher Group Ltd.</strong>
+          This document bears the official seal of Ebersbacher Group Ltd. (Company No. 12847653),<br/>
+          registered in England &amp; Wales. The seal confirms the authenticity of the authorizations stated herein.<br/>
+          Document Ref: <strong style="font-family:monospace;color:#1D3571;font-size:10px;">EBG-AUTH-2026-0630</strong>
+        </div>
+      </div>
+
+      <div class="notary-stub">
+        <div class="notary-title">Note to Recipient</div>
+        <div class="notary-body">
+          This document is issued on official headed paper of Ebersbacher Group Ltd. and is valid without independent notarisation for the purpose of commercial due diligence. Company verification is available via Companies House public register at <strong>companieshouse.gov.uk</strong>, using company number <strong>12847653</strong>. For independent legal verification, recipients may engage a UK-qualified solicitor to confirm the standing of the company and its officers.
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- FOOTER -->
-  <div class="doc-footer">
-    <div class="doc-footer-note">
-      This letter is issued on official letterhead of Ebersbacher Group Ltd. (Co. No. 12847653), registered in England &amp; Wales. Registered office: Whittington Road, Worcester, WR5 2RG. Any unauthorised reproduction or alteration of this document is a criminal offence.
-    </div>
-    <div class="doc-footer-ref">EBG-AUTH-2026-0630</div>
+  <div class="page-footer">
+    <div class="pf-left">Ebersbacher Group Ltd. &bull; Co. No. 12847653 &bull; Registered in England &amp; Wales &bull; Regulated activity conducted in accordance with applicable UK financial legislation</div>
+    <div class="pf-right">EBG-AUTH-2026-0630</div>
   </div>
 
-  <div class="bottom-stripe"></div>
+  <div class="bottom-rule"></div>
 </div>
 </body>
 </html>

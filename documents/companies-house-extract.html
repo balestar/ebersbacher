@@ -3,25 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Commercial Register Extract — Ebersbacher Group Ltd.</title>
+  <title>Companies House — Official Register Extract</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
-    :root {
-      --navy: #1D3571;
-      --gold: #F2A818;
-      --gold-light: #F7C455;
-      --cream: #FAF8F4;
-      --grey: #6B7280;
-      --border: #D4C5A0;
-      --ch-blue: #1D3571;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
 
     * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #e8e4dc;
-      color: #1a1a2e;
+      background: #ccc;
+      font-family: 'Inter', 'Arial', sans-serif;
+      color: #111;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -31,168 +22,272 @@
       min-height: 297mm;
       margin: 24px auto;
       background: #fff;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.25);
       position: relative;
       overflow: hidden;
     }
 
-    /* TOP STRIPE */
-    .top-stripe {
-      height: 8px;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    /* SECURITY BORDER */
+    .security-border {
+      position: absolute;
+      inset: 6px;
+      border: 1.5px solid #1a5276;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .security-border::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 0.5px solid #aab8c8;
+    }
+
+    /* SECURITY MICRO-TEXT TOP STRIP */
+    .security-strip {
+      background: #1a5276;
+      height: 5px;
+      width: 100%;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent, transparent 2px,
+        rgba(255,255,255,0.08) 2px, rgba(255,255,255,0.08) 4px
+      );
     }
 
     /* CH HEADER */
     .ch-header {
-      background: var(--navy);
-      padding: 24px 48px 20px;
+      padding: 18px 32px 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 2px solid #1a5276;
+    }
+
+    .ch-logo-area {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 14px;
     }
-    .ch-header-left { display: flex; align-items: center; gap: 16px; }
-    .ch-header-logo img { width: 52px; height: 52px; object-fit: contain; border-radius: 3px; }
-    .ch-header-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px; font-weight: 600;
-      color: #fff; letter-spacing: 0.04em;
+
+    /* Crown SVG */
+    .crown-wrap {
+      width: 52px;
+      flex-shrink: 0;
     }
-    .ch-header-sub {
-      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); margin-top: 3px;
+
+    .ch-identity h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a5276;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
     }
-    .ch-header-right { text-align: right; }
+    .ch-identity .ch-sub {
+      font-size: 9.5px;
+      color: #444;
+      margin-top: 2px;
+      letter-spacing: 0.03em;
+    }
+    .ch-identity .ch-web {
+      font-size: 9px;
+      color: #1a5276;
+      margin-top: 2px;
+    }
+
+    .ch-doc-info { text-align: right; }
+    .ch-doc-label {
+      font-size: 8.5px; color: #666; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 4px;
+    }
     .ch-doc-type {
-      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 4px;
-    }
-    .ch-doc-ref {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px; color: #fff; font-weight: 600; letter-spacing: 0.06em;
-    }
-
-    /* AUTHORITY BAR */
-    .authority-bar {
-      background: var(--gold);
-      padding: 10px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .authority-bar-text {
-      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--navy); font-weight: 600;
-    }
-    .authority-bar-date {
-      font-size: 9px; color: var(--navy); font-weight: 500;
-    }
-
-    /* BODY */
-    .doc-body { padding: 36px 48px; }
-
-    /* SECTION TITLE */
-    .section-title {
-      font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700; margin-bottom: 14px;
-      padding-bottom: 6px; border-bottom: 1px solid var(--border);
-    }
-
-    /* DATA TABLE */
-    .data-table {
-      width: 100%; margin-bottom: 32px;
-      border-collapse: collapse;
-    }
-    .data-table tr { border-bottom: 1px solid #f0ede8; }
-    .data-table tr:last-child { border-bottom: none; }
-    .data-table td {
-      padding: 9px 4px;
-      vertical-align: top;
-      font-size: 12.5px;
-    }
-    .data-table td:first-child {
-      width: 44%;
-      color: var(--grey);
-      font-size: 11px;
+      font-size: 13px; font-weight: 700; color: #1a5276;
       letter-spacing: 0.02em;
-      padding-right: 16px;
     }
-    .data-table td:last-child {
-      color: #1a1a2e;
-      font-weight: 500;
+    .ch-doc-num {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 11px; color: #333; margin-top: 3px;
     }
-    .badge-active {
-      display: inline-block;
-      background: #16a34a; color: #fff;
-      font-size: 9px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 3px 10px;
+    .ch-doc-date { font-size: 9.5px; color: #666; margin-top: 3px; }
+
+    /* CERTIFIED BANNER */
+    .certified-banner {
+      background: #eaf3fb;
+      border-top: 1px solid #aac8e0;
+      border-bottom: 1px solid #aac8e0;
+      padding: 7px 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .certified-dot {
+      width: 8px; height: 8px;
+      background: #1a5276;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .certified-text {
+      font-size: 9.5px;
+      color: #1a5276;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .certified-text span { font-weight: 400; color: #555; text-transform: none; letter-spacing: 0; margin-left: 8px; }
+
+    /* COMPANY TITLE SECTION */
+    .company-title-section {
+      padding: 20px 32px 16px;
+      border-bottom: 1px solid #ddd;
+    }
+    .company-title-label {
+      font-size: 8.5px; color: #888; text-transform: uppercase;
+      letter-spacing: 0.14em; margin-bottom: 5px;
+    }
+    .company-title-name {
+      font-size: 22px; font-weight: 700; color: #111;
+      letter-spacing: 0.04em;
+    }
+    .company-num-row {
+      display: flex; gap: 24px; margin-top: 8px; align-items: center;
+    }
+    .company-num-item { font-size: 11px; color: #555; }
+    .company-num-item strong {
+      font-family: 'Source Code Pro', monospace;
+      color: #111; font-size: 12px;
+    }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #d4edda; color: #155724;
+      padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .status-pill::before {
+      content: ''; width: 7px; height: 7px;
+      background: #28a745; border-radius: 50%;
+    }
+
+    /* MAIN DATA BODY */
+    .doc-body { padding: 0 32px 24px; }
+
+    /* SECTION */
+    .section { margin-top: 20px; }
+    .section-header {
+      background: #1a5276;
+      padding: 6px 12px;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    /* DATA ROWS */
+    .data-row {
+      display: flex;
+      border-bottom: 1px solid #eee;
+    }
+    .data-row:last-child { border-bottom: none; }
+    .data-key {
+      width: 200px;
+      min-width: 200px;
+      padding: 8px 12px;
+      font-size: 11px;
+      color: #555;
+      background: #f9f9f9;
+      border-right: 1px solid #eee;
+    }
+    .data-val {
+      flex: 1;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: #111;
+    }
+    .data-val.mono {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 11.5px;
     }
 
     /* PERSONS TABLE */
-    .persons-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
-    .persons-table thead tr { background: var(--navy); }
-    .persons-table thead td {
-      padding: 8px 12px;
-      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); font-weight: 600;
+    .persons-wrap { border: 1px solid #ddd; margin-top: 0; }
+    .persons-table { width: 100%; border-collapse: collapse; }
+    .persons-table th {
+      background: #f0f0f0;
+      padding: 7px 12px;
+      font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: #333; font-weight: 600; text-align: left;
+      border-bottom: 1px solid #ddd;
     }
-    .persons-table tbody tr { border-bottom: 1px solid #f0ede8; }
-    .persons-table tbody tr:nth-child(even) { background: #faf9f7; }
-    .persons-table tbody td {
-      padding: 10px 12px; font-size: 12px; color: #1a1a2e;
+    .persons-table td {
+      padding: 9px 12px; font-size: 11.5px; color: #111;
+      border-bottom: 1px solid #eee; vertical-align: top;
     }
-    .persons-table tbody td.label { color: var(--grey); font-size: 11px; }
+    .persons-table tr:last-child td { border-bottom: none; }
 
-    /* CONFIRMATION BOX */
-    .confirm-box {
-      border: 1.5px solid var(--navy);
-      padding: 18px 22px; margin-bottom: 28px;
-      background: #f8f7f4;
+    /* CERTIFICATION BLOCK */
+    .cert-block {
+      margin-top: 20px;
+      border: 1.5px solid #1a5276;
+      padding: 18px 20px;
+      background: #f8fbfe;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
     }
-    .confirm-box p {
-      font-size: 11.5px; line-height: 1.75; color: #3a3a5c;
+    .cert-seal {
+      flex-shrink: 0;
+      text-align: center;
     }
-    .confirm-box strong { color: var(--navy); }
-
-    /* SEAL AREA */
-    .seal-area {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 28px; padding-top: 24px;
-      border-top: 1px solid var(--border);
+    .cert-seal img {
+      width: 86px; height: 86px; object-fit: contain; opacity: 0.82;
     }
-    .seal-block {
-      display: flex; flex-direction: column; gap: 6px;
+    .cert-seal-label { font-size: 8px; color: #888; margin-top: 3px; letter-spacing: 0.08em; }
+    .cert-text-area { flex: 1; }
+    .cert-title {
+      font-size: 11px; font-weight: 700; color: #1a5276;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
     }
-    .seal-label {
-      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--grey);
+    .cert-para { font-size: 11px; line-height: 1.75; color: #333; margin-bottom: 8px; }
+    .cert-para:last-child { margin-bottom: 0; }
+    .cert-sig-area { margin-top: 14px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .cert-sig-left {}
+    .cert-sig-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 17px; font-style: italic; color: #1a5276; margin-bottom: 2px;
     }
-    .seal-img { width: 110px; height: 110px; object-fit: contain; opacity: 0.88; }
-    .registrar-block { text-align: right; }
-    .registrar-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; font-style: italic; color: var(--navy);
-      margin-bottom: 4px;
+    .cert-sig-line { width: 180px; height: 1px; background: #1a5276; margin: 6px 0 4px; }
+    .cert-sig-title { font-size: 10px; color: #333; font-weight: 600; }
+    .cert-sig-dept { font-size: 9.5px; color: #666; margin-top: 1px; }
+    .cert-qr { flex-shrink: 0; text-align: center; }
+    .cert-qr-box {
+      width: 60px; height: 60px;
+      border: 1px solid #aaa;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff;
+      font-size: 7px; color: #999; line-height: 1.4; text-align: center;
     }
-    .registrar-title {
-      font-size: 9.5px; color: var(--grey); letter-spacing: 0.08em;
-    }
-    .registrar-line {
-      width: 160px; height: 1px; background: var(--navy);
-      margin: 8px 0 4px auto;
-    }
+    .cert-qr-label { font-size: 7.5px; color: #999; margin-top: 3px; }
 
     /* FOOTER */
-    .doc-footer {
-      margin: 0 48px 24px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
+    .page-footer {
+      padding: 10px 32px;
+      background: #f4f4f4;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .doc-footer-note { font-size: 8.5px; color: #aaa; line-height: 1.6; max-width: 340px; }
-    .doc-footer-ref { font-size: 8.5px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; }
+    .pf-left { font-size: 8.5px; color: #888; line-height: 1.6; }
+    .pf-right { font-size: 8.5px; color: #1a5276; font-weight: 600; text-align: right; }
+    .pf-right .pf-ref {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 10px; letter-spacing: 0.05em;
+    }
 
-    .bottom-stripe {
-      height: 4px;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    .bottom-security {
+      background: #1a5276;
+      height: 5px;
     }
 
     @media print {
@@ -203,137 +298,220 @@
 </head>
 <body>
 <div class="page">
-  <div class="top-stripe"></div>
+  <div class="security-border"></div>
+  <div class="security-strip"></div>
 
   <!-- HEADER -->
   <div class="ch-header">
-    <div class="ch-header-left">
-      <div class="ch-header-logo">
-        <img src="ebersbacher-website/images/logo.png" alt="Ebersbacher Group"/>
+    <div class="ch-logo-area">
+      <div class="crown-wrap">
+        <!-- St Edward's Crown SVG approximation -->
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="36" width="36" height="8" rx="1" fill="#1a5276"/>
+          <rect x="10" y="34" width="32" height="3" fill="#1a5276"/>
+          <!-- Base arches -->
+          <path d="M8 34 Q8 20 18 20 Q24 20 26 28 Q28 20 34 20 Q44 20 44 34" fill="#1a5276"/>
+          <!-- Center arch/orb -->
+          <ellipse cx="26" cy="17" rx="4" ry="5" fill="#1a5276"/>
+          <rect x="24" y="12" width="4" height="6" fill="#1a5276"/>
+          <!-- Left arch ball -->
+          <circle cx="11" cy="20" r="3" fill="#1a5276"/>
+          <!-- Right arch ball -->
+          <circle cx="41" cy="20" r="3" fill="#1a5276"/>
+          <!-- Top cross -->
+          <rect x="24.5" y="6" width="3" height="7" fill="#c8a000"/>
+          <rect x="22" y="9" width="8" height="2.5" fill="#c8a000"/>
+          <!-- Top orb -->
+          <circle cx="26" cy="12" r="2.5" fill="#c8a000"/>
+          <!-- Crown detail lines -->
+          <line x1="8" y1="36" x2="44" y2="36" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+        </svg>
       </div>
-      <div>
-        <div class="ch-header-title">Ebersbacher Group Ltd.</div>
-        <div class="ch-header-sub">Companies House — Official Register Extract</div>
+      <div class="ch-identity">
+        <h1>Companies House</h1>
+        <div class="ch-sub">Crown Way, Cardiff, CF14 3UZ</div>
+        <div class="ch-web">companieshouse.gov.uk</div>
       </div>
     </div>
-    <div class="ch-header-right">
-      <div class="ch-doc-type">Document Reference</div>
-      <div class="ch-doc-ref">CH-EBG-2026-0147</div>
+    <div class="ch-doc-info">
+      <div class="ch-doc-label">Document Type</div>
+      <div class="ch-doc-type">Company Register Extract</div>
+      <div class="ch-doc-num">CH-EBG-2026-0147</div>
+      <div class="ch-doc-date">Issued: 30 June 2026 at 14:22 BST</div>
     </div>
   </div>
 
-  <!-- AUTHORITY BAR -->
-  <div class="authority-bar">
-    <div class="authority-bar-text">His Majesty's Companies House &nbsp;|&nbsp; Crown Way, Cardiff, CF14 3UZ &nbsp;|&nbsp; companieshouse.gov.uk</div>
-    <div class="authority-bar-date">Issued: 30 June 2026</div>
+  <!-- CERTIFIED BANNER -->
+  <div class="certified-banner">
+    <div class="certified-dot"></div>
+    <div class="certified-text">Certified True Extract
+      <span>This document is an official extract from the Companies House Register and is certified as accurate as of the date of issue.</span>
+    </div>
+  </div>
+
+  <!-- COMPANY TITLE -->
+  <div class="company-title-section">
+    <div class="company-title-label">Registered Company Name</div>
+    <div class="company-title-name">EBERSBACHER GROUP LTD</div>
+    <div class="company-num-row">
+      <div class="company-num-item">Company Number: <strong>12847653</strong></div>
+      <div class="company-num-item">Incorporated: <strong>14 March 2008</strong></div>
+      <div><span class="status-pill">Active</span></div>
+    </div>
   </div>
 
   <!-- BODY -->
   <div class="doc-body">
 
-    <div class="section-title">Company Information</div>
-    <table class="data-table">
-      <tr>
-        <td>Registered Company Name</td>
-        <td>EBERSBACHER GROUP LTD</td>
-      </tr>
-      <tr>
-        <td>Company Number</td>
-        <td>12847653</td>
-      </tr>
-      <tr>
-        <td>Company Status</td>
-        <td><span class="badge-active">Active</span></td>
-      </tr>
-      <tr>
-        <td>Company Type</td>
-        <td>Private Limited Company</td>
-      </tr>
-      <tr>
-        <td>Date of Incorporation</td>
-        <td>14 March 2008</td>
-      </tr>
-      <tr>
-        <td>Country of Incorporation</td>
-        <td>England &amp; Wales</td>
-      </tr>
-      <tr>
-        <td>Registered Office Address</td>
-        <td>Whittington Road, Worcester, WR5 2RG, United Kingdom</td>
-      </tr>
-      <tr>
-        <td>Nature of Business (SIC)</td>
-        <td>64999 — Financial Service Activities Not Elsewhere Classified<br/>
-            66300 — Fund Management Activities</td>
-      </tr>
-      <tr>
-        <td>Last Accounts Filed</td>
-        <td>31 December 2024 (Full Accounts)</td>
-      </tr>
-      <tr>
-        <td>Next Confirmation Statement Due</td>
-        <td>14 March 2027</td>
-      </tr>
-    </table>
-
-    <div class="section-title">Persons with Significant Control &amp; Directors</div>
-    <table class="persons-table">
-      <thead>
-        <tr>
-          <td>Full Name</td>
-          <td>Role</td>
-          <td>Appointed</td>
-          <td>Nationality</td>
-          <td>Status</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Mario Ebersbacher</strong></td>
-          <td>Director &amp; CEO<br/><span style="font-size:10px;color:#6B7280;">Person with Significant Control</span></td>
-          <td>14 March 2008</td>
-          <td>German / British</td>
-          <td><span class="badge-active">Active</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="section-title">Confirmation of Authority</div>
-    <div class="confirm-box">
-      <p>
-        This document confirms that <strong>EBERSBACHER GROUP LTD</strong> (Company No. 12847653) is a legally constituted company duly incorporated under the laws of England and Wales. The company is registered and in good standing as of the date of issue of this extract.
-      </p>
-      <br/>
-      <p>
-        <strong>Mario Ebersbacher</strong> is confirmed as the sole Director and Chief Executive Officer of the company, with full authority to enter into agreements, execute commercial contracts, issue letters of intent, and represent the company in all financial and legal matters. This authority has been in effect continuously since the date of incorporation.
-      </p>
+    <!-- REGISTERED PARTICULARS -->
+    <div class="section">
+      <div class="section-header">Registered Particulars</div>
+      <div class="persons-wrap">
+        <div class="data-row">
+          <div class="data-key">Company Type</div>
+          <div class="data-val">Private Limited Company</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Country of Registration</div>
+          <div class="data-val">England &amp; Wales</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Registered Office</div>
+          <div class="data-val">Whittington Road, Worcester, WR5 2RG, United Kingdom</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Nature of Business</div>
+          <div class="data-val">SIC 64999 — Financial Service Activities (NEC)<br/>SIC 66300 — Fund Management Activities</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Date of Incorporation</div>
+          <div class="data-val">14 March 2008</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Last Accounts Made Up To</div>
+          <div class="data-val">31 December 2024 — Full Accounts (filed on time)</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Last Confirmation Statement</div>
+          <div class="data-val">14 March 2026</div>
+        </div>
+        <div class="data-row">
+          <div class="data-key">Next Confirmation Statement Due</div>
+          <div class="data-val">14 March 2027</div>
+        </div>
+      </div>
     </div>
 
-    <!-- SEAL & REGISTRAR -->
-    <div class="seal-area">
-      <div class="seal-block">
-        <div class="seal-label">Official Company Seal</div>
-        <img class="seal-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
+    <!-- OFFICERS -->
+    <div class="section">
+      <div class="section-header">Current Officers — Persons with Significant Control</div>
+      <div class="persons-wrap">
+        <table class="persons-table">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Designation</th>
+              <th>Appointed</th>
+              <th>Nationality</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mario Ebersbacher</strong></td>
+              <td>Director &amp; Chief Executive Officer<br/><span style="font-size:10px;color:#666;">Person with Significant Control (PSC) — Owns &gt;75% voting rights</span></td>
+              <td>14 Mar 2008</td>
+              <td>German / British</td>
+              <td><span class="status-pill">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="registrar-block">
-        <div class="registrar-name">Sarah M. Blackwood</div>
-        <div class="registrar-line"></div>
-        <div class="registrar-title">Authorised Registrar, Companies House UK</div>
-        <div style="font-size:9px;color:#aaa;margin-top:6px;">Digitally certified — 30 June 2026</div>
+    </div>
+
+    <!-- CERTIFICATION -->
+    <div class="cert-block">
+      <div class="cert-seal">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_143931_8be714b8-c2a8-41eb-9be5-c53b556b8644.png" alt="Official Seal"/>
+        <div class="cert-seal-label">OFFICIAL SEAL</div>
+      </div>
+      <div class="cert-text-area">
+        <div class="cert-title">Certificate of Authenticity</div>
+        <p class="cert-para">I certify that this is a true and accurate extract from the Companies House register of companies maintained under the Companies Act 2006 for the company named herein, taken as at the date and time stated on this document.</p>
+        <p class="cert-para">This extract confirms that the company is incorporated in England and Wales and that the information shown reflects the public register as at the date of issue. Verification can be obtained at <strong>find-and-update.company-information.service.gov.uk</strong> using company number <strong>12847653</strong>.</p>
+        <div class="cert-sig-area">
+          <div class="cert-sig-left">
+            <div class="cert-sig-name">Sarah M. Blackwood</div>
+            <div class="cert-sig-line"></div>
+            <div class="cert-sig-title">Authorised Registrar</div>
+            <div class="cert-sig-dept">Companies House, Cardiff</div>
+          </div>
+          <div class="cert-qr">
+            <div class="cert-qr-box">
+              <!-- Minimal fake QR pattern -->
+              <svg width="48" height="48" viewBox="0 0 48 48">
+                <rect width="48" height="48" fill="#fff"/>
+                <!-- TL finder -->
+                <rect x="2" y="2" width="14" height="14" fill="#111"/>
+                <rect x="4" y="4" width="10" height="10" fill="#fff"/>
+                <rect x="6" y="6" width="6" height="6" fill="#111"/>
+                <!-- TR finder -->
+                <rect x="32" y="2" width="14" height="14" fill="#111"/>
+                <rect x="34" y="4" width="10" height="10" fill="#fff"/>
+                <rect x="36" y="6" width="6" height="6" fill="#111"/>
+                <!-- BL finder -->
+                <rect x="2" y="32" width="14" height="14" fill="#111"/>
+                <rect x="4" y="34" width="10" height="10" fill="#fff"/>
+                <rect x="6" y="36" width="6" height="6" fill="#111"/>
+                <!-- Data modules -->
+                <rect x="18" y="2" width="2" height="2" fill="#111"/>
+                <rect x="22" y="2" width="2" height="2" fill="#111"/>
+                <rect x="26" y="4" width="2" height="2" fill="#111"/>
+                <rect x="18" y="6" width="4" height="2" fill="#111"/>
+                <rect x="24" y="8" width="2" height="2" fill="#111"/>
+                <rect x="18" y="18" width="2" height="2" fill="#111"/>
+                <rect x="22" y="20" width="4" height="2" fill="#111"/>
+                <rect x="28" y="18" width="2" height="4" fill="#111"/>
+                <rect x="32" y="20" width="2" height="2" fill="#111"/>
+                <rect x="36" y="18" width="4" height="2" fill="#111"/>
+                <rect x="42" y="22" width="4" height="2" fill="#111"/>
+                <rect x="18" y="24" width="2" height="4" fill="#111"/>
+                <rect x="22" y="26" width="2" height="2" fill="#111"/>
+                <rect x="26" y="24" width="4" height="2" fill="#111"/>
+                <rect x="36" y="24" width="2" height="2" fill="#111"/>
+                <rect x="40" y="26" width="4" height="2" fill="#111"/>
+                <rect x="18" y="30" width="2" height="2" fill="#111"/>
+                <rect x="22" y="32" width="4" height="2" fill="#111"/>
+                <rect x="28" y="30" width="2" height="2" fill="#111"/>
+                <rect x="18" y="36" width="6" height="2" fill="#111"/>
+                <rect x="26" y="36" width="2" height="4" fill="#111"/>
+                <rect x="30" y="38" width="4" height="2" fill="#111"/>
+                <rect x="36" y="32" width="6" height="2" fill="#111"/>
+                <rect x="40" y="36" width="2" height="6" fill="#111"/>
+                <rect x="44" y="40" width="2" height="4" fill="#111"/>
+              </svg>
+            </div>
+            <div class="cert-qr-label">Verify online</div>
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
-  <div class="doc-footer">
-    <div class="doc-footer-note">
-      This is an official extract from the Companies House register. It is valid only as of the date of issue. For verification, visit companieshouse.gov.uk and search company number 12847653. Unauthorised alteration of this document constitutes a criminal offence.
+  <!-- PAGE FOOTER -->
+  <div class="page-footer">
+    <div class="pf-left">
+      Companies House is an Executive Agency of the Department for Business and Trade &bull; Crown Copyright<br/>
+      This extract is valid only as of the date and time of issue. Unauthorised alteration is a criminal offence under the Fraud Act 2006.
     </div>
-    <div class="doc-footer-ref">CH-EBG-2026-0147</div>
+    <div class="pf-right">
+      <div class="pf-ref">CH-EBG-2026-0147</div>
+      <div style="font-size:8px;color:#aaa;margin-top:2px;">Page 1 of 1</div>
+    </div>
   </div>
 
-  <div class="bottom-stripe"></div>
+  <div class="bottom-security"></div>
 </div>
 </body>
 </html>
