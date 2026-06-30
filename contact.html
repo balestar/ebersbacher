@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact & About | Ebersbacher Group</title>
+  <title>About &amp; Contact | Ebersbacher Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -14,7 +14,7 @@
 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(29,53,113,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(242,168,24,0.25);}
     .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-    .nav-brand img{width:40px;height:40px;object-fit:contain;}
+    .nav-brand img{width:44px;height:44px;object-fit:contain;border-radius:3px;}
     .nav-brand-text .name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:0.05em;line-height:1;}
     .nav-brand-text .sub{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
     .nav-links{display:flex;align-items:center;gap:36px;}
@@ -26,8 +26,8 @@
     /* PAGE HERO */
     .page-hero{padding-top:72px;background:var(--navy);position:relative;overflow:hidden;}
     .page-hero-bg{position:absolute;inset:0;}
-    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.25;}
-    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,27,42,0.4),var(--navy));}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.22;}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(29,53,113,0.5),var(--navy));}
     .page-hero-content{position:relative;z-index:2;padding:80px 60px 70px;max-width:800px;}
     .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
     .eyebrow-line{width:32px;height:1px;background:var(--gold);}
@@ -39,13 +39,12 @@
 
     /* ABOUT SECTION */
     .about{padding:100px 60px;background:#fff;}
-    .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+    .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start;}
     .about-image-col{position:relative;}
-    .about-portrait{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;}
+    .about-portrait{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;display:block;}
     .about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--navy);padding:22px 24px;min-width:180px;}
     .about-badge-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:600;}
     .about-badge-title{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:4px;}
-    .about-text{}
     .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:20px;}
     .about-body{font-size:13.5px;line-height:1.9;color:var(--grey);margin-bottom:16px;}
     .about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:18px;margin:28px 0;line-height:1.5;}
@@ -55,10 +54,19 @@
     .cred-dot{width:6px;height:6px;background:var(--gold);flex-shrink:0;}
     .cred-text{font-size:12.5px;color:var(--grey);}
 
+    /* AWARD STRIP */
+    .award-strip{background:var(--navy);padding:60px;display:flex;align-items:center;gap:60px;border-top:3px solid var(--gold);}
+    .award-image{flex-shrink:0;max-width:520px;overflow:hidden;border:3px solid rgba(242,168,24,0.3);}
+    .award-image img{width:100%;display:block;}
+    .award-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;}
+    .award-heading{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;}
+    .award-heading em{font-style:italic;color:var(--gold-light);}
+    .award-body{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:420px;}
+
     /* LOCATION */
     .location{padding:0;position:relative;height:420px;overflow:hidden;}
     .location img{width:100%;height:100%;object-fit:cover;}
-    .location-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,27,42,0.85) 40%,rgba(13,27,42,0.2) 100%);}
+    .location-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(29,53,113,0.88) 40%,rgba(29,53,113,0.2) 100%);}
     .location-content{position:absolute;top:50%;left:60px;transform:translateY(-50%);max-width:460px;}
     .location-content h3{font-family:'Cormorant Garamond',serif;font-size:36px;color:#fff;font-weight:300;margin-bottom:10px;}
     .location-content h3 em{font-style:italic;color:var(--gold-light);}
@@ -83,7 +91,6 @@
     .contact-value a:hover{color:var(--gold);}
 
     /* FORM */
-    .contact-form-wrap{}
     .contact-form-wrap h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);margin-bottom:24px;font-weight:400;}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
     .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
@@ -101,9 +108,9 @@
     .btn-primary{background:var(--gold);color:var(--navy);padding:14px 32px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif;display:inline-block;text-decoration:none;}
     .btn-primary:hover{background:var(--gold-light);}
 
-    footer{background:var(--navy);padding:60px 60px 30px;border-top:1px solid rgba(201,168,76,0.15);}
+    footer{background:var(--navy);padding:60px 60px 30px;border-top:1px solid rgba(242,168,24,0.15);}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
-    .footer-brand img{width:44px;height:44px;object-fit:contain;margin-bottom:12px;}
+    .footer-brand img{width:48px;height:48px;object-fit:contain;margin-bottom:12px;border-radius:3px;}
     .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;letter-spacing:0.05em;}
     .footer-brand-sub{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;margin-bottom:16px;}
     .footer-brand-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.75;max-width:280px;}
@@ -128,7 +135,7 @@
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="about.html">About</a>
+    <a href="contact.html">About</a>
     <a href="contact.html" class="active">Contact</a>
     <a href="contact.html" class="nav-cta">Enquire</a>
   </div>
@@ -136,7 +143,7 @@
 
 <div class="page-hero">
   <div class="page-hero-bg">
-    <img id="contact-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
   </div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
@@ -151,9 +158,7 @@
 <section class="about">
   <div class="about-inner">
     <div class="about-image-col">
-      <img class="about-portrait" id="about-portrait"
-        src="images/mario-headshot.png"
-        alt="Mario Ebersbacher — CEO, Ebersbacher Group"/>
+      <img class="about-portrait" src="images/mario-headshot.png" alt="Mario Ebersbacher — CEO, Ebersbacher Group"/>
       <div class="about-badge">
         <div class="about-badge-name">Mario Ebersbacher</div>
         <div class="about-badge-title">Chief Executive Officer</div>
@@ -182,20 +187,20 @@
 </section>
 
 <!-- AWARD STRIP -->
-<div style="background:var(--navy);padding:60px;display:flex;align-items:center;gap:60px;border-top:3px solid var(--gold);">
-  <div style="flex-shrink:0;max-width:560px;overflow:hidden;border:3px solid rgba(201,168,76,0.3);">
-    <img src="images/mario-award.png" alt="Herausragende Vermögensverwaltung 2018 Award" style="width:100%;display:block;"/>
+<div class="award-strip">
+  <div class="award-image">
+    <img src="images/mario-award.png" alt="Herausragende Vermögensverwaltung 2018 Award"/>
   </div>
   <div>
-    <div style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;">Industry Recognition</div>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;">Herausragende Vermögensverwaltung<br/><em style="font-style:italic;color:var(--gold-light);">Award 2018</em></h3>
-    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:420px;">Recognised by <em>FOCUS MONEY</em> and <em>n-tv</em> for outstanding excellence in private wealth management — one of the most prestigious distinctions in the German-speaking financial industry.</p>
+    <div class="award-label">Industry Recognition</div>
+    <h3 class="award-heading">Herausragende Vermögensverwaltung<br/><em>Award 2018</em></h3>
+    <p class="award-body">Recognised by <em>FOCUS MONEY</em> and <em>n-tv</em> for outstanding excellence in private wealth management — one of the most prestigious distinctions in the German-speaking financial industry.</p>
   </div>
 </div>
 
 <!-- LOCATION -->
 <div class="location">
-  <img id="location-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Worcester, United Kingdom"/>
   <div class="location-overlay"></div>
   <div class="location-content">
     <h3>Based in <em>Worcester,</em><br/>serving Europe.</h3>
@@ -204,7 +209,7 @@
       <span><strong>Ebersbacher Group Ltd.</strong></span>
       <span>Whittington Road, Worcester</span>
       <span>WR5 2RG, United Kingdom</span>
-      <span style="margin-top:6px;color:var(--gold);">ebersbacher.co.uk</span>
+      <span style="margin-top:6px;color:var(--gold);">team@ebersbacher.co.uk</span>
     </div>
   </div>
 </div>
@@ -231,8 +236,8 @@
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div>
-            <div class="contact-label">Direct Email</div>
-            <div class="contact-value"><a href="mailto:mario.ebersbacher@ebersbacher.co.uk">mario.ebersbacher@ebersbacher.co.uk</a></div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:team@ebersbacher.co.uk">team@ebersbacher.co.uk</a></div>
           </div>
         </div>
         <div class="contact-row">
@@ -273,6 +278,10 @@
         <input type="email" placeholder="your@email.com"/>
       </div>
       <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+44 (0)..."/>
+      </div>
+      <div class="form-group">
         <label>Enquiry Type</label>
         <select>
           <option>Portfolio Management</option>
@@ -286,7 +295,7 @@
         <label>Your Message</label>
         <textarea placeholder="Please describe your enquiry in brief. All information shared is treated as strictly confidential."></textarea>
       </div>
-      <p class="form-disclaimer">By submitting this form you agree to be contacted by Ebersbacher Group Ltd. in response to your enquiry. We will never share your information with third parties. See our Privacy Policy at ebersbacher.co.uk/privacy.</p>
+      <p class="form-disclaimer">By submitting this form you agree to be contacted by Ebersbacher Group Ltd. in response to your enquiry. We will never share your information with third parties.</p>
       <button class="btn-primary" type="submit">Send Enquiry</button>
     </div>
   </div>
@@ -302,8 +311,8 @@
     </div>
     <div class="footer-col">
       <h5>Company</h5>
-      <a href="about.html">About Us</a>
-      <a href="contact.html#team">Leadership</a>
+      <a href="contact.html">About Us</a>
+      <a href="contact.html">Leadership</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -316,8 +325,8 @@
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
-      <p>Whittington Rd<br/>Worcester, WR5 2RG<br/>United Kingdom</p>
-      <a href="mailto:mario.ebersbacher@ebersbacher.co.uk">mario.ebersbacher@<br/>ebersbacher.co.uk</a>
+      <p>Whittington Road<br/>Worcester, WR5 2RG<br/>United Kingdom</p>
+      <a href="mailto:team@ebersbacher.co.uk">team@ebersbacher.co.uk</a>
       <a href="https://ebersbacher.co.uk">ebersbacher.co.uk</a>
     </div>
   </div>

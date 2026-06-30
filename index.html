@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ebersbacher Group | Private Wealth & Investment Management</title>
+  <title>Ebersbacher Group | Private Wealth &amp; Investment Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -32,7 +32,7 @@
       border-bottom: 1px solid rgba(242,168,24,0.25);
     }
     .nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
-    .nav-brand img { width:40px; height:40px; object-fit:contain; }
+    .nav-brand img { width:44px; height:44px; object-fit:contain; border-radius:3px; }
     .nav-brand-text .name {
       font-family:'Cormorant Garamond',serif;
       font-size:18px; font-weight:600;
@@ -65,15 +65,15 @@
     }
     .hero-bg {
       position:absolute; inset:0;
-      background: linear-gradient(135deg, #0D1B2A 0%, #1a2f45 60%, #0f2233 100%);
+      background: linear-gradient(135deg, #1D3571 0%, #254896 60%, #1a2f65 100%);
     }
     .hero-bg img {
       position:absolute; inset:0; width:100%; height:100%;
-      object-fit:cover; opacity:0.35;
+      object-fit:cover; opacity:0.32;
     }
     .hero-overlay {
       position:absolute; inset:0;
-      background: linear-gradient(to right, rgba(13,27,42,0.92) 40%, rgba(13,27,42,0.4) 100%);
+      background: linear-gradient(to right, rgba(29,53,113,0.9) 40%, rgba(29,53,113,0.35) 100%);
     }
     .hero-content {
       position:relative; z-index:2;
@@ -208,14 +208,14 @@
     }
     .service-card {
       background:rgba(255,255,255,0.04);
-      border:1px solid rgba(201,168,76,0.12);
+      border:1px solid rgba(242,168,24,0.12);
       padding:36px 30px;
       transition:background 0.3s, border-color 0.3s;
       text-decoration:none;
     }
     .service-card:hover {
-      background:rgba(201,168,76,0.08);
-      border-color:rgba(201,168,76,0.35);
+      background:rgba(242,168,24,0.08);
+      border-color:rgba(242,168,24,0.35);
     }
     .service-icon {
       width:40px; height:40px; margin-bottom:20px;
@@ -279,6 +279,33 @@
       color:var(--navy); margin-top:3px; opacity:0.7;
     }
 
+    /* ── RECOGNITION STRIP ── */
+    .recognition {
+      background:var(--navy); padding:72px 60px;
+      display:flex; align-items:center; gap:60px;
+      border-top:3px solid var(--gold);
+    }
+    .recognition-image {
+      flex-shrink:0; max-width:480px; overflow:hidden;
+      border:3px solid rgba(242,168,24,0.3);
+    }
+    .recognition-image img { width:100%; display:block; }
+    .recognition-text {}
+    .recognition-label {
+      font-size:9px; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--gold); font-weight:700; margin-bottom:12px;
+    }
+    .recognition-heading {
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:300; color:#fff;
+      line-height:1.2; margin-bottom:14px;
+    }
+    .recognition-heading em { font-style:italic; color:var(--gold-light); }
+    .recognition-body {
+      font-size:13px; color:rgba(255,255,255,0.55); line-height:1.8;
+      max-width:420px;
+    }
+
     /* ── CTA BAND ── */
     .cta-band {
       background:var(--navy-mid);
@@ -302,13 +329,13 @@
     footer {
       background:var(--navy);
       padding:60px 60px 30px;
-      border-top:1px solid rgba(201,168,76,0.15);
+      border-top:1px solid rgba(242,168,24,0.15);
     }
     .footer-grid {
       display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
       gap:48px; margin-bottom:48px;
     }
-    .footer-brand img { width:44px; height:44px; object-fit:contain; margin-bottom:12px; }
+    .footer-brand img { width:48px; height:48px; object-fit:contain; margin-bottom:12px; border-radius:3px; }
     .footer-brand-name {
       font-family:'Cormorant Garamond',serif;
       font-size:18px; color:#fff; letter-spacing:0.05em;
@@ -356,7 +383,7 @@
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="services.html">Services</a>
-    <a href="about.html">About</a>
+    <a href="contact.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="nav-cta">Enquire</a>
   </div>
@@ -365,13 +392,13 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img id="hero-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_114026_05c46301-2696-4bc8-95e9-4d2cfa047641.png" alt=""/>
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_114026_05c46301-2696-4bc8-95e9-4d2cfa047641.png" alt=""/>
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span>Private Wealth Management — Worcester, UK</span>
+      <span>Private Wealth Management — Worcester, United Kingdom</span>
     </div>
     <h1>Capital managed with<br/><em>discretion &amp; precision.</em></h1>
     <p class="hero-sub">
@@ -393,7 +420,7 @@
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
-    <div class="stat-number">€2.4B+</div>
+    <div class="stat-number">€1.8B+</div>
     <div class="stat-label">Assets Under Advisory</div>
   </div>
   <div class="stat-item">
@@ -401,7 +428,7 @@
     <div class="stat-label">Years of Excellence</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">240+</div>
+    <div class="stat-number">180+</div>
     <div class="stat-label">Private Client Mandates</div>
   </div>
   <div class="stat-item">
@@ -414,7 +441,7 @@
 <section class="philosophy">
   <div class="philosophy-grid">
     <div class="philosophy-image">
-      <img id="philosophy-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="Ebersbacher Group philosophy"/>
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="Ebersbacher Group advisory room"/>
       <div class="philosophy-image-frame"></div>
     </div>
     <div class="philosophy-text">
@@ -437,7 +464,7 @@
         and strategic capital deployment — serving clients who expect nothing less
         than exceptional.
       </p>
-      <a href="about.html" class="btn-primary" style="margin-top:12px; display:inline-block;">Meet the Team</a>
+      <a href="contact.html" class="btn-primary" style="margin-top:12px; display:inline-block;">Meet the Team</a>
     </div>
   </div>
 </section>
@@ -466,7 +493,7 @@
       </a>
       <a href="services.html" class="service-card">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div class="service-name">Strategic Investment</div>
         <p class="service-desc">Direct investment advisory for private equity, real assets, and cross-border acquisition opportunities.</p>
@@ -529,7 +556,7 @@
       </div>
     </div>
     <div class="why-us-image">
-      <img id="why-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png" alt="Ebersbacher Group"/>
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png" alt="Ebersbacher Group"/>
       <div class="why-us-badge">
         <div class="why-us-badge-num">18+</div>
         <div class="why-us-badge-label">Years Trusted</div>
@@ -538,11 +565,23 @@
   </div>
 </section>
 
+<!-- INDUSTRY RECOGNITION -->
+<div class="recognition">
+  <div class="recognition-image">
+    <img src="images/mario-award.png" alt="Herausragende Vermögensverwaltung 2018"/>
+  </div>
+  <div class="recognition-text">
+    <div class="recognition-label">Industry Recognition</div>
+    <h3 class="recognition-heading">Herausragende Vermögensverwaltung<br/><em>Award 2018</em></h3>
+    <p class="recognition-body">Recognised by <em>FOCUS MONEY</em> and <em>n-tv</em> for outstanding excellence in private wealth management — one of the most prestigious distinctions in the German-speaking financial industry.</p>
+  </div>
+</div>
+
 <!-- CTA BAND -->
 <div class="cta-band">
   <div class="cta-band-text">
     <h2>Ready to begin a<br/><em>private conversation?</em></h2>
-    <p>Speak directly with Mario Ebersbacher or a member of our advisory team.</p>
+    <p>Contact our advisory team for a confidential, obligation-free discussion.</p>
   </div>
   <div class="cta-band-actions">
     <a href="contact.html" class="btn-primary">Get in Touch</a>
@@ -557,12 +596,12 @@
       <img src="images/logo.png" alt="Ebersbacher Group"/>
       <div class="footer-brand-name">Ebersbacher Group</div>
       <div class="footer-brand-sub">Wealth &amp; Investment Management</div>
-      <p class="footer-brand-desc">A boutique private wealth management firm serving high-net-worth individuals and institutional clients across Europe from our base in Worcester, United Kingdom.</p>
+      <p class="footer-brand-desc">A boutique private wealth management firm serving high-net-worth individuals and institutional clients across Europe from our principal office in Worcester, United Kingdom.</p>
     </div>
     <div class="footer-col">
       <h5>Company</h5>
-      <a href="about.html">About Us</a>
-      <a href="about.html#team">Leadership</a>
+      <a href="contact.html">About Us</a>
+      <a href="contact.html">Leadership</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -575,8 +614,8 @@
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
-      <p>Whittington Rd<br/>Worcester, WR5 2RG<br/>United Kingdom</p>
-      <a href="mailto:mario.ebersbacher@ebersbackergroup.com">mario.ebersbacher@<br/>ebersbackergroup.com</a>
+      <p>Whittington Road<br/>Worcester, WR5 2RG<br/>United Kingdom</p>
+      <a href="mailto:team@ebersbacher.co.uk">team@ebersbacher.co.uk</a>
       <a href="https://ebersbacher.co.uk">ebersbacher.co.uk</a>
     </div>
   </div>
@@ -586,20 +625,5 @@
   </div>
 </footer>
 
-<script>
-  // Swap in Higgsfield images once loaded
-  window.HERO_IMG = 'https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_114026_05c46301-2696-4bc8-95e9-4d2cfa047641.png';
-  window.SERVICES_IMG = 'https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113208_70f10e44-066f-45ee-ba00-17ed8db6b792.png';
-  window.LOCATION_IMG = 'https://d8j0ntlcm91z4.cloudfront.net/user_39wOWRDtFWQnyxmLBBoL4uhZ6be/hf_20260630_113159_db732393-72ff-4f5a-b319-2bd621676c08.png';
-
-  function trySwap(id, url) {
-    if (!url || url.includes('PLACEHOLDER')) return;
-    const el = document.getElementById(id);
-    if (el) el.src = url;
-  }
-  trySwap('hero-img', window.HERO_IMG);
-  trySwap('philosophy-img', window.SERVICES_IMG);
-  trySwap('why-img', window.SERVICES_IMG);
-</script>
 </body>
 </html>
